@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+
+    <title>Yudame - Build Your Brand</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap"
+    />
+    <style>
+      body {
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-danger is-fullheight">
+      <!-- Hero head: will stick at the top -->
+      <div class="hero-head">
+        <header class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                <img src="assets/logo-brand-trans.png" alt="Yudame logo" />
+              </a>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <p class="title">Build Your Brand</p>
+          <div class="signup-form">
+            <form hx-post="https://app.yuda.me/account/create">
+              <div class="field">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="email"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-warning" type="submit">Start</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero footer: will stick at the bottom -->
+      <div class="hero-foot">
+        <nav class="is-boxed is-fullwidth">
+          <div class="container">
+            <figure class="image is-128x128">
+              <img src="assets/girl_yellow_shirt.png" />
+            </figure>
+            <figure class="image is-128x128">
+              <img src="assets/guy_yellow_shirt.png" />
+            </figure>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/htmx.org@1.1.0"></script>
+  </body>
+</html>
