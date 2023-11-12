@@ -14,10 +14,15 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap"
     />
+    <script
+      src="https://kit.fontawesome.com/c83e8fd695.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
-      body {
+      body,
+      .button {
         font-family: "Raleway", sans-serif;
-        font-weight: 500;
+        font-weight: 600;
       }
     </style>
   </head>
@@ -40,25 +45,13 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <p class="title">Build Your Brand</p>
-          <div class="signup-form">
-            <form hx-post="https://app.yuda.me/account/create">
-              <div class="field">
-                <div class="control">
-                  <input
-                    class="input"
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="email"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="control">
-                <button class="button is-warning" type="submit">Start</button>
-              </div>
-            </form>
-          </div>
+
+          <button
+            class="button is-large is-white modal-trigger m-5"
+            data-target="modal"
+          >
+            Start
+          </button>
         </div>
       </div>
 
@@ -66,17 +59,153 @@
       <div class="hero-foot">
         <nav class="is-boxed is-fullwidth">
           <div class="container">
-            <figure class="image is-128x128">
-              <img src="assets/girl_yellow_shirt.png" />
-            </figure>
-            <figure class="image is-128x128">
-              <img src="assets/guy_yellow_shirt.png" />
-            </figure>
+            <div class="level">
+              <div class="level-left">
+                <figure class="image is-128x128">
+                  <img src="assets/girl_yellow_shirt.png" />
+                </figure>
+              </div>
+              <div class="level-right">
+                <figure class="image is-128x128">
+                  <img src="assets/guy_yellow_shirt.png" />
+                </figure>
+              </div>
+            </div>
           </div>
         </nav>
       </div>
     </section>
 
+    <div id="modal" class="modal">
+      <div class="modal-background"></div>
+
+      <div class="modal-content">
+        <div class="box">
+          <div class="level">
+            <div class="level-item has-text-centered">
+              <h4 class="is-size-5 has-text-weight-semibold">
+                this is for ...
+              </h4>
+            </div>
+          </div>
+
+          <div class="level">
+            <div class="level-item has-text-centered">
+              <div class="card is-clickable">
+                <div class="card-content">
+                  <div class="content">
+                    <h4 class="">My Company</h4>
+                    <span class="icon">
+                      <i class="fa-solid fa-building fa-2xl"></i>
+                      <!-- fa-fade -->
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div class="card is-clickable">
+                <div class="card-content">
+                  <div class="content">
+                    <h4 class="">Something New</h4>
+                    <p>
+                      <span class="icon">
+                        <i class="fa-solid fa-lightbulb fa-2xl"></i>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="signup_form" class="level-item is-hidden">
+              <form hx-post="https://app.yuda.me/account/create">
+                <div class="field">
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="control">
+                  <button class="button is-warning" type="submit">Start</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="level">
+            <div class="level-left"></div>
+            <div class="level-right">
+              <div class="level-item">
+                <button class="button is-large is-warning">
+                  <span>Go</span>
+                  <span class="icon">
+                    <i class="fa-solid fa-rocket"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://unpkg.com/htmx.org@1.1.0"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Functions to open and close a modal
+        function openModal($el) {
+          $el.classList.add("is-active")
+        }
+
+        function closeModal($el) {
+          $el.classList.remove("is-active")
+        }
+
+        function closeAllModals() {
+          ;(document.querySelectorAll(".modal") || []).forEach(($modal) => {
+            closeModal($modal)
+          })
+        }
+
+        // Add a click event on buttons to open a specific modal
+        ;(document.querySelectorAll(".modal-trigger") || []).forEach(
+          ($trigger) => {
+            const modal = $trigger.dataset.target
+            const $target = document.getElementById(modal)
+
+            $trigger.addEventListener("click", () => {
+              openModal($target)
+            })
+          }
+        )
+
+        // Add a click event on various child elements to close the parent modal
+        ;(
+          document.querySelectorAll(
+            ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button"
+          ) || []
+        ).forEach(($close) => {
+          const $target = $close.closest(".modal")
+
+          $close.addEventListener("click", () => {
+            closeModal($target)
+          })
+        })
+
+        // Add a keyboard event to close all modals
+        document.addEventListener("keydown", (event) => {
+          if (event.code === "Escape") {
+            closeAllModals()
+          }
+        })
+      })
+    </script>
   </body>
 </html>
