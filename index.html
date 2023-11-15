@@ -10,6 +10,8 @@
     />
 
     <title>Yudame - Build Your Brand</title>
+    <link rel="icon" href="assets/favicon.png" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap"
@@ -46,12 +48,12 @@
         <div class="container has-text-centered">
           <p class="title">Build Your Brand</p>
 
-          <button
-            class="button is-large is-white modal-trigger m-5"
-            data-target="modal"
+          <a
+            href="https://app.yuda.me/getting-started/0/"
+            class="button is-large is-white m-5"
           >
             Start
-          </button>
+          </a>
         </div>
       </div>
 
@@ -76,188 +78,6 @@
       </div>
     </section>
 
-    <div id="modal" class="modal">
-      <div class="modal-background"></div>
-
-      <div class="modal-content">
-        <div class="box">
-          <div class="level">
-            <div class="level-item has-text-centered">
-              <h4 class="is-size-5 has-text-weight-semibold">
-                this is for ...
-              </h4>
-            </div>
-          </div>
-
-          <div class="level">
-            <div
-              id="company_brand"
-              class="level-item card is-clickable has-text-centered"
-            >
-              <div class="card-content">
-                <div class="content">
-                  <h4 class="">My Company</h4>
-                  <span class="icon">
-                    <i class="fa-solid fa-building fa-2xl"></i>
-                    <!-- fa-fade -->
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              id="new_idea"
-              class="level-item card is-clickable has-text-centered"
-            >
-              <div class="card-content">
-                <div class="content">
-                  <h4 class="">Something New</h4>
-                  <p>
-                    <span class="icon">
-                      <i class="fa-solid fa-lightbulb fa-2xl"></i>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div id="signup_form" class="level-item is-hidden">
-              <form
-                id="form_form"
-                action="https://app.yuda.me/account/create"
-                method="post"
-              >
-                <div id="brand_name_input" class="field">
-                  <label class="label">Your Company Name:</label>
-                  <div class="control">
-                    <input
-                      class="input is-large"
-                      type="text"
-                      name="brand_name"
-                      placeholder="Banana Corp"
-                    />
-                  </div>
-                </div>
-                <div id="idea_input" class="field">
-                  <label class="label">Describe Your Idea:</label>
-                  <div class="control">
-                    <textarea
-                      class="textarea is-medium"
-                      name="brand_description"
-                      placeholder="App to find bananas"
-                    ></textarea>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="level">
-            <div class="level-left"></div>
-            <div class="level-right">
-              <div
-                id="go_button"
-                class="level-item is-hidden"
-                onclick="document.getElementById('form_form').submit();"
-              >
-                <button class="button is-large is-warning">
-                  <span>Go</span>
-                  <span class="icon">
-                    <i class="fa-solid fa-play"></i>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <script src="https://unpkg.com/htmx.org@1.1.0"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Functions to open and close a modal
-        function openModal($el) {
-          $el.classList.add("is-active")
-        }
-
-        function closeModal($el) {
-          $el.classList.remove("is-active")
-        }
-
-        function closeAllModals() {
-          ;(document.querySelectorAll(".modal") || []).forEach(($modal) => {
-            closeModal($modal)
-          })
-        }
-
-        // Add a click event on buttons to open a specific modal
-        ;(document.querySelectorAll(".modal-trigger") || []).forEach(
-          ($trigger) => {
-            const modal = $trigger.dataset.target
-            const $target = document.getElementById(modal)
-
-            $trigger.addEventListener("click", () => {
-              openModal($target)
-            })
-          }
-        )
-
-        // Add a click event on various child elements to close the parent modal
-        ;(
-          document.querySelectorAll(
-            ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button"
-          ) || []
-        ).forEach(($close) => {
-          const $target = $close.closest(".modal")
-
-          $close.addEventListener("click", () => {
-            closeModal($target)
-          })
-        })
-
-        // Add a keyboard event to close all modals
-        document.addEventListener("keydown", (event) => {
-          if (event.code === "Escape") {
-            closeAllModals()
-          }
-        })
-
-        // Get all clickable cards, the signup form, and the specific input fields
-        const cards = document.querySelectorAll(".card.is-clickable")
-        const signupForm = document.querySelector("#signup_form")
-        const companyBrandInput = document.querySelector("#brand_name_input")
-        const newIdeaInput = document.querySelector("#idea_input")
-        const goButton = document.querySelector("#go_button")
-
-        // Add click event listener to each card
-        cards.forEach((card) => {
-          card.addEventListener("click", () => {
-            // Hide all cards
-            cards.forEach((c) => {
-              c.style.display = "none"
-            })
-
-            // Show the clicked card
-            card.style.display = "block"
-
-            // Show the signup form
-            signupForm.classList.remove("is-hidden")
-
-            // Show the go button
-            goButton.classList.remove("is-hidden")
-
-            // If #company_brand is clicked, hide #idea_input
-            if (card.id === "company_brand") {
-              newIdeaInput.style.display = "none"
-            }
-
-            // If #new_idea is clicked, hide #brand_name_input
-            if (card.id === "new_idea") {
-              companyBrandInput.style.display = "none"
-            }
-          })
-        })
-      })
-    </script>
   </body>
 </html>
