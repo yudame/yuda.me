@@ -1,0 +1,20 @@
+name = "yuda-me-site"
+main = "deploy/cloudflare/worker.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespace binding
+# You'll need to create this namespace and update the ID
+kv_namespaces = [
+  { binding = "SITE_ASSETS", id = "e4b6d938447a4a74bf487f1affc31f60" }
+]
+
+# Routes for your domain
+routes = [
+  { pattern = "yuda.me/*", zone_name = "yuda.me" },
+  { pattern = "www.yuda.me/*", zone_name = "yuda.me" }
+]
+
+# Build configuration
+[build]
+command = "npm run build"
+watch_paths = ["src/**/*", "deploy/cloudflare/worker.js"]

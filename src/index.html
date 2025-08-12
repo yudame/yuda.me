@@ -1,279 +1,697 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yudame - Building Tomorrow's Digital Products</title>
-    <meta name="description" content="Yudame is an innovation lab building cutting-edge digital products and AI solutions for businesses worldwide.">
-    <link rel="icon" href="/assets/logos/favicon.png" type="image/png">
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body class="bg-gray-50 text-gray-900">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <div class="container-max px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <img src="/assets/logos/logo-brand-trans.png" alt="Yudame" class="h-10 w-auto">
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-700 hover:text-gray-900 font-medium">About</a>
-                    <a href="#portfolio" class="text-gray-700 hover:text-gray-900 font-medium">Portfolio</a>
-                    <a href="#products" class="text-gray-700 hover:text-gray-900 font-medium">Products</a>
-                    <a href="#contact" class="text-gray-700 hover:text-gray-900 font-medium">Contact</a>
-                </div>
-                <button id="mobile-menu-button" class="md:hidden p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 py-2 space-y-1">
-                <a href="#about" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">About</a>
-                <a href="#portfolio" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">Portfolio</a>
-                <a href="#products" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">Products</a>
-                <a href="#contact" class="block py-2 text-gray-700 hover:text-gray-900 font-medium">Contact</a>
-            </div>
-        </div>
-    </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Yudame | Building Exceptional Products</title>
+        <meta
+            name="description"
+            content="We partner with forward-thinking companies to build exceptional software products through AI-forward development."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/styles.css" />
+        <style>
+            :root {
+                --yellow: #f5d563;
+                --black: #0a0a0a;
+                --white: #ffffff;
+                --warm-gray: #fafafa;
+                --text-gray: #666666;
+            }
 
-    <!-- Hero Section -->
-    <section class="pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20 bg-gradient-to-br from-yellow-50 via-white to-red-50">
-        <div class="container-max px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-4xl mx-auto">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-['Raleway'] mb-6">
-                    Building Tomorrow's <span class="text-gradient">Digital Products</span>
-                </h1>
-                <p class="text-xl sm:text-2xl text-gray-600 mb-8">
-                    We're an innovation lab turning bold ideas into breakthrough digital solutions.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#portfolio" class="btn-primary">View Our Work</a>
-                    <a href="#contact" class="btn-outline">Let's Build Together</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-    <!-- About Section -->
-    <section id="about" class="section-padding bg-white">
-        <div class="container-max">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold font-['Raleway'] mb-4">About Yudame</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    We're a digital innovation lab that partners with forward-thinking companies to create cutting-edge products and AI solutions.
-                </p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Innovation First</h3>
-                    <p class="text-gray-600">We push boundaries and explore new technologies to create breakthrough solutions.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Client Partnership</h3>
-                    <p class="text-gray-600">We work closely with our clients to understand their vision and deliver exceptional results.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Rapid Delivery</h3>
-                    <p class="text-gray-600">We move fast to bring ideas to market quickly without compromising on quality.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+                color: var(--black);
+                background: var(--white);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section-padding bg-gray-50">
-        <div class="container-max">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold font-['Raleway'] mb-4">Client Portfolio</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    We've partnered with innovative companies to build transformative digital products.
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Deckfusion -->
-                <div class="card hover:scale-105 transition-transform duration-200">
-                    <h3 class="text-2xl font-bold mb-2">Deckfusion</h3>
-                    <p class="text-gray-600 mb-4">Data storytelling platform that transforms complex data into compelling narratives and visualizations.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Data Viz</span>
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Analytics</span>
-                    </div>
-                </div>
-                <!-- Bumble -->
-                <div class="card hover:scale-105 transition-transform duration-200">
-                    <h3 class="text-2xl font-bold mb-2">Bumble</h3>
-                    <p class="text-gray-600 mb-4">Social platform innovations and feature development for enhanced user engagement and connection.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Social</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Mobile</span>
-                    </div>
-                </div>
-                <!-- Chainstarters -->
-                <div class="card hover:scale-105 transition-transform duration-200">
-                    <h3 class="text-2xl font-bold mb-2">Chainstarters</h3>
-                    <p class="text-gray-600 mb-4">Web3 no-code platform enabling anyone to build and deploy blockchain applications without coding.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Web3</span>
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">No-Code</span>
-                    </div>
-                </div>
-                <!-- Additional Clients -->
-                <div class="card hover:scale-105 transition-transform duration-200">
-                    <h3 class="text-2xl font-bold mb-2">FinTech Innovators</h3>
-                    <p class="text-gray-600 mb-4">Built secure payment processing systems and financial analytics tools for emerging fintech companies.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">FinTech</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Security</span>
-                    </div>
-                </div>
-                <div class="card hover:scale-105 transition-transform duration-200">
-                    <h3 class="text-2xl font-bold mb-2">Healthcare Solutions</h3>
-                    <p class="text-gray-600 mb-4">Developed AI-powered diagnostic tools and patient management systems for healthcare providers.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Healthcare</span>
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">AI/ML</span>
-                    </div>
-                </div>
-                <div class="card hover:scale-105 transition-transform duration-200">
-                    <h3 class="text-2xl font-bold mb-2">E-Commerce Leaders</h3>
-                    <p class="text-gray-600 mb-4">Created personalized shopping experiences and inventory optimization systems for retail brands.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">E-Commerce</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Optimization</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            /* Typography */
+            h1 {
+                font-size: clamp(2.5rem, 6vw, 4.5rem);
+                font-weight: 300;
+                letter-spacing: -0.02em;
+                line-height: 1.1;
+            }
 
-    <!-- Products Section -->
-    <section id="products" class="section-padding bg-white">
-        <div class="container-max">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold font-['Raleway'] mb-4">Our Products</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Innovative solutions we've built to solve real-world problems.
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- QuickBooks MCP -->
-                <div class="card border-2 border-yellow-400 hover:shadow-2xl">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center mr-3">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold">QuickBooks MCP for Claude</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">AI-powered QuickBooks assistant that brings natural language accounting to Claude Desktop. Automate reports, reconciliation, and invoicing with simple commands.</p>
-                    <a href="/quickbooks.html" class="btn-primary w-full text-center">Learn More →</a>
-                </div>
-                <!-- AI Agents Suite -->
-                <div class="card border-2 border-red-600 hover:shadow-2xl">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-3">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold">AI Agents Suite</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">Customizable AI agents for business automation. From customer service to data analysis, our agents work 24/7 to streamline your operations.</p>
-                    <button class="btn-secondary w-full text-center">Coming Soon</button>
-                </div>
-            </div>
-        </div>
-    </section>
+            h2 {
+                font-size: clamp(1.75rem, 4vw, 2.5rem);
+                font-weight: 300;
+                letter-spacing: -0.01em;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+            }
 
-    <!-- CTA Section -->
-    <section id="contact" class="section-padding bg-gradient-to-br from-yellow-400 to-red-600">
-        <div class="container-max text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold font-['Raleway'] text-white mb-4">Ready to Build Something Amazing?</h2>
-            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                Whether you need a custom solution or want to explore our products, we're here to help transform your ideas into reality.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://app.yuda.me/getting-started/0/" class="px-8 py-4 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 inline-block">
-                    Get Started Now
-                </a>
-                <a href="mailto:hello@yuda.me" class="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-200 inline-block">
-                    Contact Us
-                </a>
-            </div>
-        </div>
-    </section>
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8">
-        <div class="container-max px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <img src="/assets/logos/logo-square-trans.png" alt="Yudame" class="h-8 w-8 mr-2">
-                    <span class="text-white font-semibold">Yudame</span>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#about" class="hover:text-white transition-colors">About</a>
-                    <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
-                    <a href="#products" class="hover:text-white transition-colors">Products</a>
-                    <a href="mailto:hello@yuda.me" class="hover:text-white transition-colors">Contact</a>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-                <p>&copy; 2024 Yudame. Building tomorrow's digital products today.</p>
-            </div>
-        </div>
-    </footer>
+            /* Hero Section */
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                animation: fadeIn 1s ease-out;
+            }
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Smooth scroll behavior for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            .hero-content {
+                text-align: center;
+                position: relative;
+                z-index: 2;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto 3rem;
+                animation: fadeInUp 1s ease-out 0.2s both;
+            }
+
+            .logo img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .hero h1 {
+                animation: fadeInUp 1s ease-out 0.4s both;
+            }
+
+            .hero h1 .accent {
+                position: relative;
+                display: inline-block;
+            }
+
+            .hero h1 .accent {
+                position: relative;
+                display: inline-block;
+                transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .hero h1 .accent::after {
+                content: "";
+                position: absolute;
+                bottom: 0.1em;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: var(--yellow);
+                animation: underlineReveal 1s ease-out 1.2s both;
+                transition:
+                    height 0.3s ease,
+                    bottom 0.3s ease;
+            }
+
+            .hero h1:hover .accent {
+                color: var(--yellow);
+            }
+
+            .hero h1:hover .accent::after {
+                height: 3px;
+                bottom: 0.05em;
+            }
+
+            /* Geometric Pattern */
+            .geometric-pattern {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 600px;
+                height: 600px;
+                opacity: 0.03;
+                animation: rotatePattern 60s linear infinite;
+                pointer-events: none;
+            }
+
+            /* Sections */
+            section {
+                padding: 8rem 0;
+                animation: fadeIn 1s ease-out;
+            }
+
+            .philosophy {
+                background: var(--warm-gray);
+            }
+
+            .philosophy-content {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .philosophy p {
+                font-size: 1.25rem;
+                line-height: 1.8;
+                margin-bottom: 1.5rem;
+                color: var(--text-gray);
+                animation: fadeInUp 1s ease-out;
+            }
+
+            .philosophy .highlight {
+                color: var(--black);
+                font-weight: 500;
+            }
+
+            /* Capabilities */
+            .capabilities-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 4rem;
+            }
+
+            @media (min-width: 768px) {
+                .capabilities-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 3rem;
                 }
-            });
-        });
-    </script>
-</body>
+            }
+
+            .capability-card {
+                padding: 2rem;
+                background: var(--white);
+                border: 1px solid #e5e5e5;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                animation: fadeInUp 1s ease-out;
+            }
+
+            .capability-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                border-color: var(--yellow);
+            }
+
+            .capability-card h3 {
+                font-size: 1.25rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+
+            .capability-card p {
+                color: var(--text-gray);
+                line-height: 1.6;
+            }
+
+            /* About */
+            .about {
+                background: var(--warm-gray);
+            }
+
+            .team-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 4rem;
+                margin-top: 4rem;
+            }
+
+            .team-member {
+                text-align: center;
+                animation: fadeInUp 1s ease-out;
+            }
+
+            .team-photo {
+                width: 250px;
+                height: 250px;
+                margin: 0 auto 2rem;
+                position: relative;
+                border-radius: 50%;
+                overflow: hidden;
+                background: linear-gradient(
+                    135deg,
+                    rgba(245, 213, 99, 0.1) 0%,
+                    rgba(245, 213, 99, 0.05) 25%,
+                    transparent 50%,
+                    rgba(245, 213, 99, 0.05) 75%,
+                    rgba(245, 213, 99, 0.1) 100%
+                );
+                padding: 3px;
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            @media (min-width: 768px) {
+                .team-photo {
+                    width: 400px;
+                    height: 400px;
+                }
+            }
+
+            .team-photo::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: 50%;
+                padding: 2px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(245, 213, 99, 0.3),
+                    transparent 40%,
+                    transparent 60%,
+                    rgba(245, 213, 99, 0.2)
+                );
+                -webkit-mask:
+                    linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(#fff 0 0);
+                -webkit-mask-composite: exclude;
+                mask-composite: exclude;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .team-photo-inner {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                overflow: hidden;
+                position: relative;
+                background: #f5f5f5;
+            }
+
+            .team-photo img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: grayscale(100%) brightness(1.15) contrast(1.1);
+                transition:
+                    filter 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .team-member:hover .team-photo {
+                transform: scale(1.01);
+                background: linear-gradient(
+                    135deg,
+                    rgba(245, 213, 99, 0.2) 0%,
+                    rgba(245, 213, 99, 0.1) 25%,
+                    transparent 50%,
+                    rgba(245, 213, 99, 0.1) 75%,
+                    rgba(245, 213, 99, 0.2) 100%
+                );
+            }
+
+            .team-member:hover .team-photo::before {
+                opacity: 1;
+            }
+
+            .team-member:hover .team-photo img {
+                filter: grayscale(100%) brightness(1.15) contrast(1.1);
+                transform: scale(1.01);
+            }
+
+            .team-member h3 {
+                font-size: 1.5rem;
+                font-weight: 400;
+                margin-bottom: 1rem;
+            }
+
+            .team-member-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .team-member-info p {
+                color: var(--text-gray);
+                font-size: 1rem;
+                white-space: nowrap;
+                margin: 0;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .social-links a {
+                display: block;
+                color: var(--text-gray);
+                transition: all 0.3s ease;
+            }
+
+            .social-links a:hover {
+                color: var(--black);
+                transform: translateY(-2px);
+            }
+
+            .social-links svg {
+                width: 20px;
+                height: 20px;
+                fill: currentColor;
+            }
+
+            /* Footer */
+            footer {
+                padding: 3rem 0;
+                text-align: center;
+                border-top: 1px solid #e5e5e5;
+            }
+
+            footer p {
+                color: var(--text-gray);
+                font-size: 0.875rem;
+            }
+
+            footer .footer-links {
+                margin-top: 1rem;
+            }
+
+            footer a {
+                color: var(--text-gray);
+                text-decoration: none;
+                margin: 0 1rem;
+                font-size: 0.875rem;
+                transition: color 0.3s ease;
+            }
+
+            footer a:hover {
+                color: var(--black);
+            }
+
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes underlineReveal {
+                to {
+                    width: 100%;
+                }
+            }
+
+            @keyframes rotatePattern {
+                from {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+                to {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+
+            /* Staggered animations */
+            .capability-card:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+            .capability-card:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+            .capability-card:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+            .capability-card:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            .team-member:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+            .team-member:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                section {
+                    padding: 4rem 0;
+                }
+
+                .container {
+                    padding: 0 1.5rem;
+                }
+
+                .capabilities-grid {
+                    gap: 2rem;
+                }
+
+                .team-grid {
+                    gap: 3rem;
+                }
+            }
+
+            /* Accessibility */
+            :focus {
+                outline: 2px solid var(--yellow);
+                outline-offset: 2px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Hero Section -->
+        <section class="hero">
+            <!-- Geometric Pattern Background -->
+            <svg
+                class="geometric-pattern"
+                viewBox="0 0 600 600"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g stroke="#F5D563" stroke-width="1" fill="none">
+                    <path d="M300,50 L550,300 L300,550 L50,300 Z" />
+                    <path d="M300,150 L450,300 L300,450 L150,300 Z" />
+                    <path d="M300,250 L350,300 L300,350 L250,300 Z" />
+                </g>
+            </svg>
+
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <img
+                            src="/assets/logos/logo-square-trans.png"
+                            alt="Yudame"
+                        />
+                    </div>
+                    <h1>
+                        Building
+                        <span class="accent">exceptional</span>
+                        products
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy">
+            <div class="container">
+                <div class="philosophy-content">
+                    <p>
+                        We partner with
+                        <span class="highlight"
+                            >forward-thinking companies</span
+                        >
+                        to build exceptional software products.
+                    </p>
+                    <p>
+                        Through an
+                        <span class="highlight">AI-forward approach</span> to
+                        modern development, we deliver unprecedented quality at
+                        extraordinary speed.
+                    </p>
+                    <p>Partnerships are thoughtfully chosen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities Section -->
+        <section class="capabilities">
+            <div class="container">
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <h3>AI Integration</h3>
+                        <p>
+                            Context engineering and cutting-edge AI to
+                            accelerate development and enhance product
+                            intelligence.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Product Architecture</h3>
+                        <p>
+                            Designing scalable systems that grow with your
+                            business and adapt to changing needs.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Rapid Prototyping</h3>
+                        <p>
+                            From concept to working product in weeks, not
+                            months. Speed without compromise.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <div class="team-photo-inner">
+                                <img
+                                    src="/assets/profiles/tomcounsell.jpg"
+                                    alt="Tom Counsell"
+                                />
+                            </div>
+                        </div>
+                        <h3>Tom Counsell</h3>
+                        <div class="team-member-info">
+                            <p>Product architect and systems designer</p>
+                            <div class="social-links">
+                                <a
+                                    href="https://linkedin.com/in/tomcounsell"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="LinkedIn"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                        />
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://tomcounsell.com"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="Website"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                                        />
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://github.com/tomcounsell"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="GitHub"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                        />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <div class="team-photo-inner">
+                                <img
+                                    src="/assets/profiles/valorengels.jpg"
+                                    alt="Valor Engels"
+                                />
+                            </div>
+                        </div>
+                        <h3>Valor Engels</h3>
+                        <div class="team-member-info">
+                            <p>AI Engineering and PM</p>
+                            <div class="social-links">
+                                <a
+                                    href="https://linkedin.com/in/valor-engels"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="LinkedIn"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                        />
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://github.com/valor4labor"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="GitHub"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                        />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Yudame. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
 </html>
