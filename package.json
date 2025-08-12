@@ -1,0 +1,21 @@
+{
+  "name": "yudame-website",
+  "version": "1.0.0",
+  "description": "Yudame business website with product landing pages",
+  "scripts": {
+    "dev": "concurrently \"npm run watch:css\" \"npm run serve\"",
+    "watch:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "build": "npm run build:css && npm run copy:html && npm run copy:assets",
+    "copy:html": "cp -r src/*.html dist/",
+    "copy:assets": "cp -r assets dist/",
+    "serve": "python3 -m http.server 8080 --directory dist",
+    "clean": "rm -rf dist && mkdir -p dist"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "concurrently": "^8.2.2"
+  }
+}
