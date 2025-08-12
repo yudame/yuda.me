@@ -3,7 +3,14 @@ export default {
     const url = new URL(request.url);
     let path = url.pathname;
     
-    // Route handling
+    // Debug test - immediate return to check if worker is working
+    if (path === '/test') {
+      return new Response('Worker is responding!', {
+        headers: { 'Content-Type': 'text/plain' }
+      });
+    }
+    
+    // Route handling  
     if (path === '/' || path === '') {
       path = '/index.html';
     }
@@ -11,9 +18,17 @@ export default {
     // Remove leading slash for KV lookup
     const kvKey = path.startsWith('/') ? path.slice(1) : path;
     
+    console.log('Path:', path, 'KV Key:', kvKey);
+    console.log('env.SITE_ASSETS:', env.SITE_ASSETS);
+    
     try {
+      // List all keys to debug
+      const list = await env.SITE_ASSETS.list({ limit: 10 });
+      console.log('KV Keys found:', list.keys.map(k => k.name));
+      
       // Try to fetch from KV
       const asset = await env.SITE_ASSETS.get(kvKey);
+      console.log('Asset retrieved:', asset ? `yes (${asset.length} chars)` : 'no');
       
       if (asset) {
         // Determine content type

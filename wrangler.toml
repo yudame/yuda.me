@@ -1,18 +1,19 @@
 name = "yuda-me-site"
 main = "deploy/cloudflare/worker.js"
 compatibility_date = "2024-01-01"
+account_id = "1b83a8a06a32c70a2e31f36f239c7128"
 
 # KV Namespace binding
 # You'll need to create this namespace and update the ID
 kv_namespaces = [
-  { binding = "SITE_ASSETS", id = "e4b6d938447a4a74bf487f1affc31f60" }
+  { binding = "SITE_ASSETS", id = "f259ab4c4af9483d8f2151341e2f4686" }
 ]
 
-# Routes for your domain
-routes = [
-  { pattern = "yuda.me/*", zone_name = "yuda.me" },
-  { pattern = "www.yuda.me/*", zone_name = "yuda.me" }
-]
+# Routes for your domain (commented out until DNS is configured)
+# routes = [
+#   { pattern = "yuda.me/*", zone_name = "yuda.me" },
+#   { pattern = "www.yuda.me/*", zone_name = "yuda.me" }
+# ]
 
 # Build configuration
 [build]

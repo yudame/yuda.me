@@ -11,7 +11,7 @@ echo "======================================"
 echo ""
 
 # Configuration - update these if needed
-KV_NAMESPACE_ID="e4b6d938447a4a74bf487f1affc31f60"
+KV_NAMESPACE_ID="f259ab4c4af9483d8f2151341e2f4686"
 DIST_DIR="dist"
 
 # Colors for output
@@ -55,7 +55,7 @@ for file in $DIST_DIR/*.html; do
         filename=$(basename "$file")
         echo "  Uploading: $filename"
         # Updated syntax for Wrangler v3+
-        wrangler kv key put "$filename" --namespace-id="$KV_NAMESPACE_ID" --path="$file"
+        wrangler kv key put "$filename" --namespace-id="$KV_NAMESPACE_ID" --path="$file" --local=false
     fi
 done
 
@@ -65,7 +65,7 @@ for file in $DIST_DIR/*.css; do
     if [ -f "$file" ]; then
         filename=$(basename "$file")
         echo "  Uploading: $filename"
-        wrangler kv key put "$filename" --namespace-id="$KV_NAMESPACE_ID" --path="$file"
+        wrangler kv key put "$filename" --namespace-id="$KV_NAMESPACE_ID" --path="$file" --local=false
     fi
 done
 
@@ -83,7 +83,7 @@ upload_image() {
         TEMP_FILE=$(mktemp)
         base64 -i "$file_path" -o "$TEMP_FILE"
         # Upload the base64 encoded file
-        wrangler kv key put "$kv_key" --namespace-id="$KV_NAMESPACE_ID" --path="$TEMP_FILE"
+        wrangler kv key put "$kv_key" --namespace-id="$KV_NAMESPACE_ID" --path="$TEMP_FILE" --local=false
         rm "$TEMP_FILE"
     else
         echo -e "${YELLOW}  ⚠️  Skipping (not found): $kv_key${NC}"
