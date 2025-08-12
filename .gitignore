@@ -37,3 +37,6 @@ yarn-error.log*
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Wrangler/Cloudflare files
+.wrangler/

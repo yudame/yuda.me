@@ -79,8 +79,12 @@ upload_image() {
     
     if [ -f "$file_path" ]; then
         echo "  Uploading: $kv_key"
-        # For images, we need to base64 encode first then pipe to wrangler
-        base64 "$file_path" | wrangler kv key put "$kv_key" --namespace-id="$KV_NAMESPACE_ID"
+        # Create a temporary file with base64 encoded content
+        TEMP_FILE=$(mktemp)
+        base64 -i "$file_path" -o "$TEMP_FILE"
+        # Upload the base64 encoded file
+        wrangler kv key put "$kv_key" --namespace-id="$KV_NAMESPACE_ID" --path="$TEMP_FILE"
+        rm "$TEMP_FILE"
     else
         echo -e "${YELLOW}  ⚠️  Skipping (not found): $kv_key${NC}"
     fi

@@ -17,4 +17,3 @@ routes = [
 # Build configuration
 [build]
 command = "npm run build"
-watch_paths = ["src/**/*", "deploy/cloudflare/worker.js"]
