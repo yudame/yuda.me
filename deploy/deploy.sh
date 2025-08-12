@@ -54,8 +54,8 @@ for file in $DIST_DIR/*.html; do
     if [ -f "$file" ]; then
         filename=$(basename "$file")
         echo "  Uploading: $filename"
-        wrangler kv:key put --namespace-id="$KV_NAMESPACE_ID" "$filename" \
-            --path="$file" --preview=false
+        # Updated syntax for Wrangler v3+
+        wrangler kv key put "$filename" --namespace-id="$KV_NAMESPACE_ID" --path="$file"
     fi
 done
 
@@ -65,8 +65,7 @@ for file in $DIST_DIR/*.css; do
     if [ -f "$file" ]; then
         filename=$(basename "$file")
         echo "  Uploading: $filename"
-        wrangler kv:key put --namespace-id="$KV_NAMESPACE_ID" "$filename" \
-            --path="$file" --preview=false
+        wrangler kv key put "$filename" --namespace-id="$KV_NAMESPACE_ID" --path="$file"
     fi
 done
 
@@ -80,9 +79,8 @@ upload_image() {
     
     if [ -f "$file_path" ]; then
         echo "  Uploading: $kv_key"
-        base64 "$file_path" | \
-        wrangler kv:key put --namespace-id="$KV_NAMESPACE_ID" \
-            "$kv_key" --preview=false
+        # For images, we need to base64 encode first then pipe to wrangler
+        base64 "$file_path" | wrangler kv key put "$kv_key" --namespace-id="$KV_NAMESPACE_ID"
     else
         echo -e "${YELLOW}  ⚠️  Skipping (not found): $kv_key${NC}"
     fi
@@ -106,7 +104,7 @@ echo ""
 echo -e "${GREEN}✅ Deployment complete!${NC}"
 echo ""
 echo "Your site is available at:"
-echo "  • https://yuda-me-site.workers.dev"
+echo "  • https://yuda-me-site.tom-b83.workers.dev"
 echo "  • https://yuda.me (once DNS is configured)"
 echo "  • https://www.yuda.me (once DNS is configured)"
 echo ""

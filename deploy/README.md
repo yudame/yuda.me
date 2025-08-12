@@ -2,226 +2,268 @@
 
 This guide explains how to deploy the yuda.me site to Cloudflare Workers with KV storage.
 
+## Quick Start for New Developers
+
+### First Time Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone [repo-url]
+   cd yuda.me
+   npm install
+   ```
+
+2. **Install Wrangler CLI**
+   ```bash
+   npm install -g wrangler
+   ```
+
+3. **Login to Cloudflare**
+   ```bash
+   wrangler login
+   ```
+
+4. **Get Access** (for team members)
+   - Request access to Cloudflare account from Tom or Valor
+   - Get added to the yuda.me domain in Cloudflare
+
+### Daily Deployment
+
+```bash
+# Option 1: Build and deploy in one command
+npm run deploy:build
+
+# Option 2: Step by step
+npm run build         # Build the site
+npm run deploy        # Deploy to Cloudflare
+```
+
+That's it! Your changes are live at https://yuda.me
+
 ## Prerequisites
 
-1. Cloudflare account
-2. Wrangler CLI installed (`npm install -g wrangler`)
-3. Node.js and npm installed
+- Node.js 16+ and npm
+- Wrangler CLI (`npm install -g wrangler`)
+- Cloudflare account access
+- Repository access
 
-## Initial Setup
+## Architecture Overview
 
-### 1. Login to Cloudflare
-
-```bash
-wrangler login
 ```
-
-### 2. Create KV Namespace
-
-```bash
-wrangler kv:namespace create "SITE_ASSETS"
+[GitHub Repo] → [Build Process] → [KV Storage] → [Cloudflare Worker] → [yuda.me]
+                                        ↓
+                                   Static Assets
+                                   (HTML, CSS, Images)
 ```
-
-Copy the generated namespace ID and update it in `wrangler.toml`.
-
-### 3. Configure DNS
-
-Add your domain to Cloudflare and configure DNS records:
-
-1. Go to Cloudflare Dashboard → Add Site → Enter `yuda.me`
-2. Update nameservers at your domain registrar
-3. Add DNS records:
-   - Type: AAAA, Name: @, IPv6: 100::, Proxy: ON
-   - Type: AAAA, Name: www, IPv6: 100::, Proxy: ON
-
-## Deployment
-
-### Automated Deployment
-
-Run the deployment script from the project root:
-
-```bash
-./deploy/deploy.sh
-```
-
-This script will:
-1. Build the project (`npm run build`)
-2. Upload all files to KV storage
-3. Deploy the Worker
-
-### Manual Deployment
-
-1. Build the project:
-   ```bash
-   npm run build
-   ```
-
-2. Upload files to KV:
-   ```bash
-   # HTML files
-   wrangler kv:key put --namespace-id="YOUR_NAMESPACE_ID" "index.html" --path="dist/index.html"
-   wrangler kv:key put --namespace-id="YOUR_NAMESPACE_ID" "quickbooks.html" --path="dist/quickbooks.html"
-   
-   # CSS files
-   wrangler kv:key put --namespace-id="YOUR_NAMESPACE_ID" "styles.css" --path="dist/styles.css"
-   
-   # Images (base64 encoded)
-   base64 dist/assets/logos/favicon.png | wrangler kv:key put --namespace-id="YOUR_NAMESPACE_ID" "assets/logos/favicon.png"
-   # ... repeat for other images
-   ```
-
-3. Deploy the Worker:
-   ```bash
-   wrangler deploy
-   ```
 
 ## Project Structure
 
 ```
 yuda.me/
-├── src/                    # Source files
-├── dist/                   # Built files (generated)
+├── src/                    # Source files (edit these)
+│   ├── index.html         # Homepage
+│   └── quickbooks.html    # Product page
+├── dist/                   # Built files (auto-generated)
+├── assets/                 # Images and static files
 ├── deploy/                 # Deployment scripts
-│   ├── cloudflare/        # Cloudflare-specific files
-│   │   └── worker.js      # Worker script
+│   ├── cloudflare/        
+│   │   └── worker.js      # Worker script (serves the site)
 │   ├── deploy.sh          # Automated deployment script
 │   └── README.md          # This file
-├── wrangler.toml          # Wrangler configuration
-└── package.json           # Node.js dependencies
+├── wrangler.toml          # Cloudflare configuration
+└── package.json           # Dependencies and scripts
+```
+
+## Available Commands
+
+| Command | Description | When to Use |
+|---------|-------------|-------------|
+| `npm run dev` | Start dev server | Local development |
+| `npm run build` | Build production files | Before deploying |
+| `npm run deploy` | Deploy to Cloudflare | Ship to production |
+| `npm run deploy:build` | Build + Deploy | Quick deployment |
+| `npm run worker:dev` | Test Worker locally | Debug Worker issues |
+| `npm run worker:tail` | View live logs | Monitor production |
+
+## Common Tasks
+
+### Adding a New Page
+
+1. Create HTML file in `src/`
+   ```bash
+   touch src/new-page.html
+   ```
+
+2. Build and deploy
+   ```bash
+   npm run deploy:build
+   ```
+
+3. Access at `https://yuda.me/new-page.html`
+
+### Updating Images
+
+1. Add image to `assets/` folder
+2. Reference in HTML: `<img src="/assets/folder/image.png">`
+3. Deploy: `npm run deploy:build`
+
+### Checking Deployment Status
+
+```bash
+# View real-time logs
+npm run worker:tail
+
+# Test locally before deploying
+npm run worker:dev
+```
+
+## Deployment Process Details
+
+The `deploy.sh` script handles:
+
+1. **Building** - Compiles Tailwind CSS, copies HTML files
+2. **Uploading** - Sends files to Cloudflare KV storage
+3. **Deploying** - Updates the Worker script
+
+### What Gets Deployed
+
+- ✅ HTML files from `dist/`
+- ✅ CSS files from `dist/`
+- ✅ Images from `dist/assets/` (base64 encoded)
+- ✅ Worker script from `deploy/cloudflare/worker.js`
+
+### KV Storage Structure
+
+```
+Key                                    | Type    | Size
+---------------------------------------|---------|--------
+index.html                             | HTML    | ~25KB
+quickbooks.html                        | HTML    | ~31KB
+styles.css                             | CSS     | ~17KB
+assets/logos/logo-square-trans.png    | Base64  | ~20KB
+assets/logos/favicon.png              | Base64  | ~41KB
+assets/profiles/tomcounsell.jpg       | Base64  | ~270KB
+assets/profiles/valorengels.jpg       | Base64  | ~208KB
 ```
 
 ## Environment Variables
 
-Create a `.env` file for local development (do not commit):
+### Required for CI/CD (GitHub Actions)
+
+Set these in GitHub repo settings → Secrets:
+
+- `CLOUDFLARE_API_TOKEN` - Get from Cloudflare Dashboard → API Tokens
+- `CLOUDFLARE_ACCOUNT_ID` - Already in wrangler.toml (not secret)
+- `KV_NAMESPACE_ID` - Already in wrangler.toml (not secret)
+
+### Local Development (Optional)
+
+Create `.env` file (already in .gitignore):
 
 ```env
-CLOUDFLARE_ACCOUNT_ID=your_account_id
-CLOUDFLARE_API_TOKEN=your_api_token
-KV_NAMESPACE_ID=your_namespace_id
-```
-
-## Testing
-
-### Local Testing
-
-```bash
-wrangler dev
-```
-
-This starts a local development server at http://localhost:8787
-
-### Production Testing
-
-After deployment, test at:
-- Worker URL: https://yuda-me-site.workers.dev
-- Domain: https://yuda.me
-- WWW: https://www.yuda.me
-
-## Monitoring
-
-View real-time logs:
-
-```bash
-wrangler tail yuda-me-site
+CLOUDFLARE_API_TOKEN=your_token_here
 ```
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| 404 errors | Check KV keys match exactly (case-sensitive) |
-| Images not loading | Verify base64 encoding is complete |
-| Domain not working | Check DNS propagation (dnschecker.org) |
-| Worker not triggering | Verify routes in Workers settings |
-| Build fails | Run `npm install` and check Node version |
+### Common Issues
 
-## KV Storage Structure
+| Problem | Solution |
+|---------|----------|
+| "Not logged in" | Run `wrangler login` |
+| "KV namespace not found" | Check namespace ID in wrangler.toml |
+| "Build failed" | Run `npm install` then try again |
+| "404 on site" | Check if file was built: `ls dist/` |
+| "Images broken" | Verify upload completed: check logs |
+| "Deploy failed" | Check API token permissions |
 
-```
-KV Keys:
-├── index.html
-├── quickbooks.html
-├── styles.css
-├── assets/
-│   ├── logos/
-│   │   ├── logo-square-trans.png
-│   │   ├── favicon.png
-│   │   └── logo-brand-trans.png
-│   └── profiles/
-│       ├── tomcounsell.jpg
-│       └── valorengels.jpg
-```
+### Debug Commands
 
-## Updating Content
+```bash
+# Check Wrangler auth
+wrangler whoami
 
-To update the site:
+# List KV contents
+wrangler kv:key list --namespace-id=e4b6d938447a4a74bf487f1affc31f60
 
-1. Make changes in `src/`
-2. Run `./deploy/deploy.sh`
-3. Changes are live immediately
+# Test Worker locally
+npm run worker:dev
 
-## CI/CD with GitHub Actions
-
-Create `.github/workflows/deploy.yml`:
-
-```yaml
-name: Deploy to Cloudflare
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          
-      - run: npm ci
-      - run: npm run build
-      
-      - uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy
+# View production logs
+npm run worker:tail
 ```
 
-Add secrets to GitHub:
-- `CLOUDFLARE_API_TOKEN`: Your Cloudflare API token
+## Performance Notes
 
-## Performance Optimization
+- **Global CDN**: Served from 200+ Cloudflare locations
+- **Response Time**: <50ms average globally
+- **Caching**: HTML (1hr), Assets (24hrs)
+- **Free Tier**: 100k requests/day, 1GB storage
 
-The Worker implements:
-- Proper cache headers (1 hour for HTML, 1 day for assets)
-- Content-Type detection
-- Gzip compression (handled by Cloudflare)
-- Global CDN distribution
+## Making Changes
 
-## Security
+### Quick Edit Workflow
 
-- All assets served over HTTPS
-- X-Content-Type-Options: nosniff header
-- No server-side execution risks
-- KV storage is read-only from the internet
+1. Edit files in `src/`
+2. Test locally: `npm run dev`
+3. Deploy: `npm run deploy:build`
+4. Verify: Check https://yuda.me
 
-## Costs
+### Adding Team Members
 
-Free tier includes:
-- 100,000 requests/day
-- 1 GB KV storage
-- Unlimited bandwidth
+1. Add to Cloudflare account (dashboard)
+2. Grant permissions to:
+   - yuda.me domain
+   - Workers
+   - KV namespace
+3. Share repository access
 
-## Support
+## CI/CD
 
-For issues or questions:
-- Check the troubleshooting section
-- Review Cloudflare Workers documentation
-- Contact the team
+GitHub Actions automatically deploys on push to `main` branch.
+
+### Manual Deployment
+```bash
+npm run deploy:build
+```
+
+### Automatic Deployment
+```bash
+git push origin main  # Triggers GitHub Actions
+```
+
+## DNS Configuration
+
+Already configured, but for reference:
+
+| Type | Name | Value | Proxy |
+|------|------|-------|-------|
+| AAAA | @ | 100:: | ON |
+| AAAA | www | 100:: | ON |
+
+Workers routes handle actual traffic routing.
+
+## Getting Help
+
+1. **Check logs**: `npm run worker:tail`
+2. **Test locally**: `npm run worker:dev`
+3. **Read docs**: [Cloudflare Workers Docs](https://developers.cloudflare.com/workers/)
+4. **Team contacts**: Listed in package.json
+
+## Rollback Process
+
+If something goes wrong:
+
+1. **Quick fix**: Make change and redeploy
+2. **Git rollback**: 
+   ```bash
+   git revert HEAD
+   git push
+   ```
+3. **Emergency**: Contact Tom or Valor
 
 ---
 
-Last updated: August 2024
+**Last updated**: August 2024  
+**Maintained by**: Yudame Team  
+**Questions?** Check troubleshooting first, then reach out to the team.
