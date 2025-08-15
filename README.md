@@ -22,7 +22,3 @@ npm run build
 - HTML5 + Tailwind CSS
 - GitHub Pages
 - GitHub Actions (CI/CD)
-
-## License
-
-© 2024 Yudame. All rights reserved.
