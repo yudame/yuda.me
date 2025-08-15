@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Multi-page business website for Yudame, deployed on GitHub Pages at `yuda.me`. Features corporate homepage showcasing Yudame as an innovation lab and individual product landing pages (QuickBooks MCP).
+Business website for Yudame, deployed on GitHub Pages at `yuda.me`. Features corporate homepage showcasing Yudame as an innovation lab and product landing pages.
 
 ## Development Commands
 
@@ -42,7 +42,7 @@ npm run dev          # Tailwind watch + local server on port 8080
 yuda.me/
 ├── src/                    # Source files (edit these)
 │   ├── index.html         # Homepage
-│   ├── quickbooks.html    # Product page
+│   ├── *.html             # Product landing pages
 │   └── styles.css         # Tailwind input file
 ├── dist/                   # Built files (auto-generated, gitignored)
 ├── assets/                 # Static images
