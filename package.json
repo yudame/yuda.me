@@ -10,11 +10,7 @@
     "copy:html": "cp -r src/*.html dist/",
     "copy:assets": "cp -r assets dist/",
     "serve": "python3 -m http.server 8080 --directory dist",
-    "clean": "rm -rf dist && mkdir -p dist",
-    "deploy": "./deploy/deploy.sh",
-    "deploy:build": "npm run build && npm run deploy",
-    "worker:dev": "wrangler dev",
-    "worker:tail": "wrangler tail yuda-me-site"
+    "clean": "rm -rf dist && mkdir -p dist"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1",
