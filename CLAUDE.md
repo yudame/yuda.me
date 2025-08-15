@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Business website for Yudame, deployed on GitHub Pages at `yuda.me`. Features corporate homepage showcasing Yudame as an innovation lab and product landing pages.
+Single-page business website for Yudame, deployed on GitHub Pages at `yuda.me`. Corporate homepage showcasing Yudame as an innovation lab.
 
 ## Development Commands
 
@@ -26,7 +26,7 @@ npm run dev          # Tailwind watch + local server on port 8080
 ## Architecture
 
 ### Technology Stack
-- **Static HTML** - Multi-page site, no framework
+- **Static HTML** - Single-page site, no framework
 - **Tailwind CSS** - Utility-first CSS with local build process
 - **GitHub Pages** - Static site hosting
 - **GitHub Actions** - CI/CD for automatic deployment on push to main
@@ -41,8 +41,7 @@ npm run dev          # Tailwind watch + local server on port 8080
 ```
 yuda.me/
 ├── src/                    # Source files (edit these)
-│   ├── index.html         # Homepage
-│   ├── *.html             # Product landing pages
+│   ├── index.html         # Homepage (only page)
 │   └── styles.css         # Tailwind input file
 ├── dist/                   # Built files (auto-generated, gitignored)
 ├── assets/                 # Static images
