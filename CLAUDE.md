@@ -64,4 +64,13 @@ This is the marketing landing page only. The main application lives at `app.yuda
 - Keep all JavaScript inline in HTML `<script>` tags
 - Use Tailwind utility classes for all styling
 - Test locally with `npm run dev` before pushing
-- Maintain yellow/red brand color scheme (`#FFC107` / `#DC2626`)
+- Maintain brand colors via Tailwind config: `yudame-yellow` (#FFC107), `yudame-red` (#DC2626), `yudame-dark` (#1F2937)
+- Use Raleway font family (configured as `font-raleway`)
+
+## Deployment Process
+
+**GitHub Pages Configuration**:
+- Deployment triggered automatically on push to `main` branch
+- GitHub Actions workflow builds and deploys `dist/` directory
+- Custom domain `yuda.me` configured via GitHub Pages settings
+- Build artifacts are not committed - `dist/` is gitignored
