@@ -74,3 +74,7 @@ This is the marketing landing page only. The main application lives at `app.yuda
 - GitHub Actions workflow builds and deploys `dist/` directory
 - Custom domain `yuda.me` configured via GitHub Pages settings
 - Build artifacts are not committed - `dist/` is gitignored
+
+## Business Context
+
+For business context, project notes, and assets see the work vault: `~/src/work-vault/Yudame/`
