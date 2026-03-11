@@ -1,0 +1,73 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "myky7",
+      "x": 0,
+      "y": 0,
+      "name": "About Section",
+      "width": 1440,
+      "height": 600,
+      "fill": "#0a0a0a",
+      "layout": "vertical",
+      "padding": [
+        80,
+        120
+      ],
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    {
+      "type": "frame",
+      "id": "wTK4X",
+      "x": 0,
+      "y": 0,
+      "name": "Hero Section",
+      "width": 1440,
+      "height": 800,
+      "fill": "#ffffff",
+      "layout": "vertical",
+      "padding": [
+        80,
+        120
+      ],
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    {
+      "type": "frame",
+      "id": "FDD6G",
+      "x": 0,
+      "y": 0,
+      "name": "Philosophy Section",
+      "width": 1440,
+      "height": 600,
+      "fill": "#fafafa",
+      "layout": "vertical",
+      "padding": [
+        80,
+        120
+      ],
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    {
+      "type": "frame",
+      "id": "51mmM",
+      "x": 0,
+      "y": 0,
+      "name": "Capabilities Section",
+      "width": 1440,
+      "height": 800,
+      "fill": "#ffffff",
+      "layout": "vertical",
+      "padding": [
+        80,
+        120
+      ],
+      "justifyContent": "center",
+      "alignItems": "center"
+    }
+  ]
+}
