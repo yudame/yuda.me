@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Single-page business website for Yudame, deployed on GitHub Pages at `yuda.me`. Corporate homepage showcasing Yudame as an innovation lab.
+Single-page business website for Yudame, deployed on GitHub Pages at `yudame.org`. Corporate homepage showcasing Yudame as an innovation lab.
 
 ## Development Commands
 
@@ -35,11 +35,11 @@ npm run dev          # Tailwind watch + local server on port 8080
 1. **Source files** in `src/` (HTML) and `assets/` (images)
 2. **Build process** compiles Tailwind CSS and copies files to `dist/`
 3. **GitHub Actions** builds and deploys `dist/` to GitHub Pages
-4. **Live site** served at `yuda.me` via GitHub Pages
+4. **Live site** served at `yudame.org` via GitHub Pages
 
 ### Project Structure
 ```
-yuda.me/
+yudame.org/
 ├── src/                    # Source files (edit these)
 │   ├── index.html         # Homepage (only page)
 │   └── styles.css         # Tailwind input file
@@ -58,7 +58,7 @@ yuda.me/
 
 ## Important Context
 
-This is the marketing landing page only. The main application lives at `app.yuda.me`. Primary CTA directs to `https://app.yuda.me/getting-started/0/`.
+This is the marketing landing page only. The main application lives at `app.yudame.org`. Primary CTA directs to `https://app.yudame.org/getting-started/0/`.
 
 ### Development Guidelines
 - Keep all JavaScript inline in HTML `<script>` tags
@@ -72,7 +72,7 @@ This is the marketing landing page only. The main application lives at `app.yuda
 **GitHub Pages Configuration**:
 - Deployment triggered automatically on push to `main` branch
 - GitHub Actions workflow builds and deploys `dist/` directory
-- Custom domain `yuda.me` configured via GitHub Pages settings
+- Custom domain `yudame.org` configured via GitHub Pages settings
 - Build artifacts are not committed - `dist/` is gitignored
 
 ## Business Context

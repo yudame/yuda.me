@@ -1,6 +1,6 @@
 # Yudame
 
-🌐 **Live at**: [yuda.me](https://yuda.me)
+🌐 **Live at**: [yudame.org](https://yudame.org)
 
 Business website for Yudame - AI-forward product development.
 

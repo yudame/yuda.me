@@ -1,6 +1,6 @@
 # Cloudflare Deployment Guide
 
-This guide explains how to deploy the yuda.me site to Cloudflare Workers with KV storage.
+This guide explains how to deploy the yudame.org site to Cloudflare Workers with KV storage.
 
 ## Quick Start for New Developers
 
@@ -9,7 +9,7 @@ This guide explains how to deploy the yuda.me site to Cloudflare Workers with KV
 1. **Clone the repository**
    ```bash
    git clone [repo-url]
-   cd yuda.me
+   cd yudame.org
    npm install
    ```
 
@@ -25,7 +25,7 @@ This guide explains how to deploy the yuda.me site to Cloudflare Workers with KV
 
 4. **Get Access** (for team members)
    - Request access to Cloudflare account from Tom or Valor
-   - Get added to the yuda.me domain in Cloudflare
+   - Get added to the yudame.org domain in Cloudflare
 
 ### Daily Deployment
 
@@ -38,7 +38,7 @@ npm run build         # Build the site
 npm run deploy        # Deploy to Cloudflare
 ```
 
-That's it! Your changes are live at https://yuda.me
+That's it! Your changes are live at https://yudame.org
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ That's it! Your changes are live at https://yuda.me
 ## Architecture Overview
 
 ```
-[GitHub Repo] → [Build Process] → [KV Storage] → [Cloudflare Worker] → [yuda.me]
+[GitHub Repo] → [Build Process] → [KV Storage] → [Cloudflare Worker] → [yudame.org]
                                         ↓
                                    Static Assets
                                    (HTML, CSS, Images)
@@ -59,7 +59,7 @@ That's it! Your changes are live at https://yuda.me
 ## Project Structure
 
 ```
-yuda.me/
+yudame.org/
 ├── src/                    # Source files (edit these)
 │   ├── index.html         # Homepage
 │   └── quickbooks.html    # Product page
@@ -99,7 +99,7 @@ yuda.me/
    npm run deploy:build
    ```
 
-3. Access at `https://yuda.me/new-page.html`
+3. Access at `https://yudame.org/new-page.html`
 
 ### Updating Images
 
@@ -207,13 +207,13 @@ npm run worker:tail
 1. Edit files in `src/`
 2. Test locally: `npm run dev`
 3. Deploy: `npm run deploy:build`
-4. Verify: Check https://yuda.me
+4. Verify: Check https://yudame.org
 
 ### Adding Team Members
 
 1. Add to Cloudflare account (dashboard)
 2. Grant permissions to:
-   - yuda.me domain
+   - yudame.org domain
    - Workers
    - KV namespace
 3. Share repository access
