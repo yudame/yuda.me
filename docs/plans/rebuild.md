@@ -1,7 +1,7 @@
 # Yudame Website Rebuild Plan
 
 ## Objective
-Complete rebuild of yudame.org as a modern business website showcasing Yudame's products and services, with dedicated landing pages for each product offering.
+Complete rebuild of yuda.me as a modern business website showcasing Yudame's products and services, with dedicated landing pages for each product offering.
 
 ## Architecture Overview
 
@@ -14,7 +14,7 @@ Complete rebuild of yudame.org as a modern business website showcasing Yudame's 
 
 ### Directory Structure
 ```
-yudame.org/
+yuda.me/
 ├── src/                      # Source files
 │   ├── index.html           # Homepage - Company overview
 │   ├── quickbooks.html      # QuickBooks MCP landing page
@@ -123,7 +123,7 @@ yudame.org/
 1. Configure Cloudflare Pages
 2. Set up build command: `npm run build`
 3. Set publish directory: `dist`
-4. Configure custom domain (yudame.org)
+4. Configure custom domain (yuda.me)
 5. Set up redirects if needed
 
 ## Design System

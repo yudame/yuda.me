@@ -6,7 +6,7 @@
     "dev": "concurrently \"npm run watch:css\" \"npm run serve\"",
     "watch:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
     "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
-    "build": "npm run build:css && npm run copy:html && npm run copy:assets && echo 'yudame.org' > dist/CNAME",
+    "build": "npm run build:css && npm run copy:html && npm run copy:assets",
     "copy:html": "cp -r src/*.html dist/",
     "copy:assets": "cp -r assets dist/",
     "serve": "python3 -m http.server 8080 --directory dist",
