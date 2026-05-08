@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pacific Telecom Practice — Yudame</title>
+        <meta
+            name="description"
+            content="Yudame's Pacific telecom practice — mobile experience, digital financial services integration, and capacity transfer for operators serving the Pacific subregion."
+        />
+        <link rel="icon" type="image/png" href="/assets/logos/favicon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/styles.css" />
+        <!--
+            CONFIDENTIALITY CONSTRAINT - read before editing.
+            This page describes Yudame's Pacific telecom practice area in
+            general terms. It must NOT identify, hint at, or narrow the field
+            toward any specific current client engagement. Avoid: any
+            country-level specificity, operator brand names, logos,
+            screenshots, subscriber counts, launch dates, product names, or
+            any phrasing that uniquely identifies a client. Use regional
+            framing only ("Pacific subregion", "Pacific operators"). Named
+            case studies land here only after the relevant partner's public
+            launch and explicit sign-off.
+        -->
+        <style>
+            :root {
+                --yellow: #f5d563;
+                --black: #0a0a0a;
+                --white: #ffffff;
+                --warm-gray: #fafafa;
+                --text-gray: #666666;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+                color: var(--black);
+                background: var(--white);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            /* Typography */
+            h1 {
+                font-size: clamp(2.5rem, 6vw, 4.5rem);
+                font-weight: 300;
+                letter-spacing: -0.02em;
+                line-height: 1.1;
+            }
+
+            h2 {
+                font-size: clamp(1.75rem, 4vw, 2.5rem);
+                font-weight: 300;
+                letter-spacing: -0.01em;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                color: var(--text-gray);
+                line-height: 1.7;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            /* Back link */
+            .back-link {
+                position: absolute;
+                top: 2rem;
+                left: 2rem;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--text-gray);
+                text-decoration: none;
+                font-size: 0.875rem;
+                font-weight: 400;
+                z-index: 10;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .back-link:hover {
+                color: var(--black);
+                transform: translateX(-2px);
+            }
+
+            .back-link svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            /* Hero Section */
+            .hero {
+                min-height: 70vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                animation: fadeIn 1s ease-out;
+                padding: 6rem 0 4rem;
+            }
+
+            .hero-content {
+                text-align: center;
+                position: relative;
+                z-index: 2;
+                max-width: 900px;
+            }
+
+            .hero h1 {
+                animation: fadeInUp 1s ease-out 0.2s both;
+            }
+
+            .hero .accent {
+                position: relative;
+                display: inline-block;
+                transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .hero .accent::after {
+                content: "";
+                position: absolute;
+                bottom: 0.1em;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: var(--yellow);
+                animation: underlineReveal 1s ease-out 1s both;
+                transition:
+                    height 0.3s ease,
+                    bottom 0.3s ease;
+            }
+
+            .hero h1:hover .accent::after {
+                height: 3px;
+                bottom: 0.05em;
+            }
+
+            .hero-eyebrow {
+                font-size: 0.875rem;
+                font-weight: 500;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--text-gray);
+                margin-bottom: 2rem;
+                animation: fadeInUp 1s ease-out both;
+            }
+
+            /* Geometric Pattern */
+            .geometric-pattern {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 600px;
+                height: 600px;
+                opacity: 0.03;
+                animation: rotatePattern 60s linear infinite;
+                pointer-events: none;
+            }
+
+            /* Sections */
+            section {
+                padding: 8rem 0;
+                animation: fadeIn 1s ease-out;
+            }
+
+            .practice-statement {
+                background: var(--warm-gray);
+            }
+
+            .practice-statement-content {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .practice-statement p {
+                font-size: 1.25rem;
+                line-height: 1.8;
+                color: var(--text-gray);
+            }
+
+            .practice-statement .highlight {
+                color: var(--black);
+                font-weight: 500;
+            }
+
+            /* Why this space */
+            .why-content {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .why-content h2 {
+                margin-bottom: 2rem;
+            }
+
+            .why-content p {
+                font-size: 1.0625rem;
+                line-height: 1.8;
+                margin-bottom: 1.5rem;
+            }
+
+            .why-content p:last-child {
+                margin-bottom: 0;
+            }
+
+            .why-content .highlight {
+                color: var(--black);
+                font-weight: 500;
+            }
+
+            /* Capabilities */
+            .capabilities {
+                background: var(--warm-gray);
+            }
+
+            .capabilities h2 {
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+
+            .capabilities-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            @media (min-width: 768px) {
+                .capabilities-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 2rem;
+                }
+            }
+
+            .capability-card {
+                padding: 2rem;
+                background: var(--white);
+                border: 1px solid #e5e5e5;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                animation: fadeInUp 1s ease-out;
+            }
+
+            .capability-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                border-color: var(--yellow);
+            }
+
+            .capability-card p {
+                color: var(--text-gray);
+                line-height: 1.6;
+            }
+
+            /* Case study placeholder */
+            .case-study h2 {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .case-study-intro {
+                text-align: center;
+                max-width: 700px;
+                margin: 0 auto 4rem;
+                color: var(--text-gray);
+                font-size: 1.0625rem;
+            }
+
+            .case-study-card {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 3rem;
+                background: var(--white);
+                border: 1px solid #e5e5e5;
+                border-left: 3px solid var(--yellow);
+                animation: fadeInUp 1s ease-out;
+            }
+
+            @media (max-width: 768px) {
+                .case-study-card {
+                    padding: 2rem 1.5rem;
+                }
+            }
+
+            .case-study-status {
+                display: inline-block;
+                font-size: 0.75rem;
+                font-weight: 500;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--text-gray);
+                background: var(--warm-gray);
+                padding: 0.4rem 0.75rem;
+                margin-bottom: 1.5rem;
+                border: 1px solid #e5e5e5;
+            }
+
+            .case-study-headline {
+                font-size: 1.5rem;
+                font-weight: 400;
+                line-height: 1.4;
+                color: var(--black);
+                margin-bottom: 2rem;
+            }
+
+            .case-study-headline .placeholder {
+                color: var(--text-gray);
+                font-style: italic;
+                font-weight: 300;
+            }
+
+            .case-study-section {
+                margin-bottom: 1.75rem;
+            }
+
+            .case-study-section:last-child {
+                margin-bottom: 0;
+            }
+
+            .case-study-label {
+                font-size: 0.75rem;
+                font-weight: 500;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--black);
+                margin-bottom: 0.5rem;
+            }
+
+            .case-study-section p {
+                color: var(--text-gray);
+                font-style: italic;
+                font-weight: 300;
+            }
+
+            /* Footer */
+            footer {
+                padding: 3rem 0;
+                text-align: center;
+                border-top: 1px solid #e5e5e5;
+            }
+
+            footer p {
+                color: var(--text-gray);
+                font-size: 0.875rem;
+            }
+
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes underlineReveal {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+
+            @keyframes rotatePattern {
+                from {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+                to {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+
+            /* Staggered animations */
+            .capability-card:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+            .capability-card:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+            .capability-card:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+            .capability-card:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                section {
+                    padding: 4rem 0;
+                }
+
+                .container {
+                    padding: 0 1.5rem;
+                }
+
+                .back-link {
+                    top: 1.25rem;
+                    left: 1.25rem;
+                }
+
+                .hero {
+                    min-height: 60vh;
+                    padding: 5rem 0 3rem;
+                }
+            }
+
+            /* Accessibility */
+            :focus {
+                outline: 2px solid var(--yellow);
+                outline-offset: 2px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="/" class="back-link" aria-label="Back to home">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            <span>Yudame</span>
+        </a>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <svg
+                class="geometric-pattern"
+                viewBox="0 0 600 600"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g stroke="#F5D563" stroke-width="1" fill="none">
+                    <path d="M300,50 L550,300 L300,550 L50,300 Z" />
+                    <path d="M300,150 L450,300 L300,450 L150,300 Z" />
+                    <path d="M300,250 L350,300 L300,350 L250,300 Z" />
+                </g>
+            </svg>
+
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-eyebrow">Practice Area</p>
+                    <h1>
+                        Pacific
+                        <span class="accent">telecom</span>
+                        practice
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Statement -->
+        <section class="practice-statement">
+            <div class="container">
+                <div class="practice-statement-content">
+                    <p>
+                        Yudame works with
+                        <span class="highlight">telecom operators in the Pacific subregion</span>
+                        on mobile experience, digital financial services integration,
+                        and the patient capacity transfer that lets local engineering
+                        teams own the platforms they ship.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why this space -->
+        <section class="why">
+            <div class="container">
+                <div class="why-content">
+                    <h2>Why this space</h2>
+                    <p>
+                        The Pacific subregion remains one of the world's hardest
+                        operating environments for digital services. Connectivity
+                        is uneven, devices skew low-end, bandwidth is expensive,
+                        and the user a product is built for may move between a
+                        4G hotspot and an intermittent rural cell in the same
+                        morning. Software written for first-world latency
+                        budgets fails quietly here. Software written
+                        <span class="highlight">for the conditions</span>
+                        is what moves the needle.
+                    </p>
+                    <p>
+                        The Asian Development Bank's framing of
+                        <span class="highlight">inclusive digital transformation</span>
+                        for Asia and the Pacific has, in recent years, narrowed
+                        toward two concrete levers:
+                        <span class="highlight">digital public infrastructure</span>
+                        — the identity, payment, and data-exchange rails that
+                        let modern services exist at all — and
+                        <span class="highlight">digital financial services</span>
+                        that close the financial-inclusion gap. ADB's own
+                        analysis estimates that more than 30% of adults in
+                        several Pacific developing member countries remain
+                        outside the formal financial system. Telecom operators
+                        sit at the practical centre of closing that gap: they
+                        own the SIM, the device relationship, and increasingly
+                        the wallet rails that bring first-time users into
+                        formal financial services.
+                    </p>
+                    <p>
+                        Yudame's practice in this space is grounded in that
+                        reality rather than around it. We build mobile
+                        experiences that hold up under intermittent
+                        connectivity, integrate with the digital financial
+                        services stack carriers are extending to underserved
+                        users, and transfer the working knowledge so the
+                        in-country engineering team owns what we build
+                        together. The goal is durable
+                        <span class="highlight">capacity in the country</span>,
+                        not vendor lock-in to a firm in a faraway city.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What we bring -->
+        <section class="capabilities">
+            <div class="container">
+                <h2>What we bring</h2>
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <h3>Mobile UX for real conditions</h3>
+                        <p>
+                            Product and interface work designed for low-end
+                            devices, intermittent connectivity, expensive data,
+                            and offline-first patterns. Performance and
+                            resilience are first-class requirements, not a
+                            polish pass.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Digital financial services integration</h3>
+                        <p>
+                            Practical integration with the wallet, KYC, and
+                            payments surfaces carriers use to extend digital
+                            financial services to first-time users. Built to
+                            interoperate with the broader digital public
+                            infrastructure stack as it matures.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>IP transfer, no vendor lock-in</h3>
+                        <p>
+                            Code, documentation, and operational knowledge
+                            transfer to the client by default. We write
+                            software our partners can maintain and extend
+                            without us, and we treat that handover as a
+                            success criterion rather than a risk.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Capacity building for in-country teams</h3>
+                        <p>
+                            Pair-programming, design reviews, and architecture
+                            mentorship with local engineering teams throughout
+                            the engagement. The aim is a stronger team in the
+                            country at the end of the project than at the
+                            start.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study Placeholder -->
+        <section class="case-study">
+            <div class="container">
+                <h2>Case study</h2>
+                <p class="case-study-intro">
+                    We are preparing case studies from current Pacific telecom
+                    engagements for publication as each partner goes live.
+                </p>
+
+                <article class="case-study-card">
+                    <span class="case-study-status">Case study pending public launch — details to follow</span>
+
+                    <h3 class="case-study-headline">
+                        <span class="placeholder">[Outcome metric pending]</span>
+                    </h3>
+
+                    <div class="case-study-section">
+                        <p class="case-study-label">Context</p>
+                        <p>
+                            A Pacific telecom operator engagement. Full
+                            context will be published once the partner's
+                            launch is public.
+                        </p>
+                    </div>
+
+                    <div class="case-study-section">
+                        <p class="case-study-label">What we did</p>
+                        <p>
+                            Product, engineering, and capacity-transfer work
+                            within Yudame's Pacific telecom practice.
+                            Specifics will be published alongside the partner's
+                            launch.
+                        </p>
+                    </div>
+
+                    <div class="case-study-section">
+                        <p class="case-study-label">Result</p>
+                        <p>
+                            Outcome metrics and qualitative results will be
+                            shared once the partner is ready to speak to them
+                            publicly.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Yudame. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
