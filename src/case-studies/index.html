@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Case Studies — Yudame</title>
+        <meta
+            name="description"
+            content="Development outcomes from Yudame engagements — capacity built, users reached, inclusion advanced. Outcomes lead, technology stays subordinate."
+        />
+        <link rel="icon" type="image/png" href="/assets/logos/favicon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/styles.css" />
+        <!--
+          Editorial convention for this page:
+          - Outcome-first. Every card leads with a development outcome
+            (users reached, inclusion advanced, capacity built), not the tech stack.
+          - Tech stack is subordinated (small, muted) or omitted.
+          - Confidentiality: where a client has not yet publicly launched,
+            do NOT add country, subscriber count, partner name, product name,
+            launch date, or any narrowing detail. See the placeholder note inline.
+        -->
+        <style>
+            :root {
+                --yellow: #f5d563;
+                --black: #0a0a0a;
+                --white: #ffffff;
+                --warm-gray: #fafafa;
+                --text-gray: #666666;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+                color: var(--black);
+                background: var(--white);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            /* Typography */
+            h1 {
+                font-size: clamp(2.25rem, 5vw, 3.75rem);
+                font-weight: 300;
+                letter-spacing: -0.02em;
+                line-height: 1.1;
+            }
+
+            h2 {
+                font-size: clamp(1.75rem, 4vw, 2.5rem);
+                font-weight: 300;
+                letter-spacing: -0.01em;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.125rem;
+                font-weight: 500;
+                letter-spacing: 0.01em;
+                color: var(--text-gray);
+                text-transform: uppercase;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            /* Back link */
+            .back-link {
+                position: absolute;
+                top: 2rem;
+                left: 2rem;
+                z-index: 10;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                text-decoration: none;
+                color: var(--text-gray);
+                font-size: 0.875rem;
+                font-weight: 400;
+                transition: color 0.3s ease;
+                animation: fadeIn 1s ease-out 0.2s both;
+            }
+
+            .back-link:hover {
+                color: var(--black);
+            }
+
+            .back-link svg {
+                width: 14px;
+                height: 14px;
+                transition: transform 0.3s ease;
+            }
+
+            .back-link:hover svg {
+                transform: translateX(-3px);
+            }
+
+            /* Hero */
+            .hero {
+                padding: 10rem 0 6rem;
+                position: relative;
+                animation: fadeIn 1s ease-out;
+            }
+
+            .hero-content {
+                max-width: 760px;
+            }
+
+            .hero-eyebrow {
+                font-size: 0.875rem;
+                font-weight: 500;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--text-gray);
+                margin-bottom: 1.5rem;
+                animation: fadeInUp 1s ease-out 0.2s both;
+            }
+
+            .hero h1 {
+                animation: fadeInUp 1s ease-out 0.4s both;
+                margin-bottom: 2rem;
+            }
+
+            .hero h1 .accent {
+                position: relative;
+                display: inline-block;
+                transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .hero h1 .accent::after {
+                content: "";
+                position: absolute;
+                bottom: 0.1em;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: var(--yellow);
+                animation: underlineReveal 1s ease-out 1.2s both;
+                transition:
+                    height 0.3s ease,
+                    bottom 0.3s ease;
+            }
+
+            .hero h1:hover .accent::after {
+                height: 3px;
+                bottom: 0.05em;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+                line-height: 1.8;
+                color: var(--text-gray);
+                animation: fadeInUp 1s ease-out 0.6s both;
+            }
+
+            /* Sections */
+            section {
+                padding: 8rem 0;
+                animation: fadeIn 1s ease-out;
+            }
+
+            .case-studies-section {
+                padding-top: 2rem;
+                padding-bottom: 8rem;
+            }
+
+            /* Case study list */
+            .case-study-list {
+                display: flex;
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+
+            .case-study {
+                padding: 3rem;
+                background: var(--white);
+                border: 1px solid #e5e5e5;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                animation: fadeInUp 1s ease-out;
+            }
+
+            .case-study:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                border-color: var(--yellow);
+            }
+
+            .case-study-status {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                font-weight: 500;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--text-gray);
+                margin-bottom: 1.5rem;
+            }
+
+            .case-study-status::before {
+                content: "";
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--yellow);
+            }
+
+            .case-study-outcome {
+                font-size: clamp(1.5rem, 3vw, 2rem);
+                font-weight: 300;
+                letter-spacing: -0.01em;
+                line-height: 1.25;
+                color: var(--black);
+                margin-bottom: 2rem;
+            }
+
+            .case-study-outcome .accent {
+                position: relative;
+                display: inline-block;
+            }
+
+            .case-study-outcome .accent::after {
+                content: "";
+                position: absolute;
+                bottom: 0.1em;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: var(--yellow);
+            }
+
+            .case-study-title {
+                font-size: 0.875rem;
+                font-weight: 500;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: var(--text-gray);
+                margin-bottom: 2rem;
+            }
+
+            .case-study-fields {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            @media (min-width: 768px) {
+                .case-study-fields {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 3rem;
+                }
+            }
+
+            .case-study-field h4 {
+                font-size: 0.75rem;
+                font-weight: 500;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--text-gray);
+                margin-bottom: 0.75rem;
+            }
+
+            .case-study-field p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: var(--black);
+            }
+
+            .case-study-stack {
+                font-size: 0.75rem;
+                color: var(--text-gray);
+                padding-top: 1.5rem;
+                border-top: 1px solid #f0f0f0;
+                letter-spacing: 0.02em;
+            }
+
+            .case-study-stack strong {
+                font-weight: 500;
+                color: var(--text-gray);
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin-right: 0.5rem;
+            }
+
+            /* Closing note */
+            .closing-note {
+                background: var(--warm-gray);
+            }
+
+            .closing-content {
+                max-width: 720px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .closing-content p {
+                font-size: 1.125rem;
+                line-height: 1.8;
+                color: var(--text-gray);
+                margin-bottom: 2rem;
+            }
+
+            .closing-content p:last-child {
+                margin-bottom: 0;
+            }
+
+            .closing-content .highlight {
+                color: var(--black);
+                font-weight: 500;
+            }
+
+            /* Footer */
+            footer {
+                padding: 3rem 0;
+                text-align: center;
+                border-top: 1px solid #e5e5e5;
+            }
+
+            footer p {
+                color: var(--text-gray);
+                font-size: 0.875rem;
+            }
+
+            footer a {
+                color: var(--text-gray);
+                text-decoration: none;
+                margin: 0 1rem;
+                font-size: 0.875rem;
+                transition: color 0.3s ease;
+            }
+
+            footer a:hover {
+                color: var(--black);
+            }
+
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes underlineReveal {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+
+            /* Staggered animations */
+            .case-study:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+            .case-study:nth-child(2) {
+                animation-delay: 0.25s;
+            }
+            .case-study:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+            .case-study:nth-child(4) {
+                animation-delay: 0.55s;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                section {
+                    padding: 4rem 0;
+                }
+
+                .container {
+                    padding: 0 1.5rem;
+                }
+
+                .hero {
+                    padding: 7rem 0 3rem;
+                }
+
+                .case-study {
+                    padding: 2rem 1.5rem;
+                }
+
+                .back-link {
+                    top: 1.5rem;
+                    left: 1.5rem;
+                }
+            }
+
+            /* Accessibility */
+            :focus {
+                outline: 2px solid var(--yellow);
+                outline-offset: 2px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Back to home -->
+        <a href="/" class="back-link" aria-label="Back to Yudame home">
+            <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+            >
+                <path
+                    d="M19 12H5M12 19l-7-7 7-7"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
+            Yudame
+        </a>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-eyebrow">Case Studies</p>
+                    <h1>
+                        Outcomes,
+                        <span class="accent">not outputs</span>.
+                    </h1>
+                    <p>
+                        We measure engagements by what stays with the client
+                        after we leave — capacity built, users reached,
+                        inclusion advanced. Tech stack is a means, not the
+                        story. The work below is framed accordingly.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case studies -->
+        <section class="case-studies-section">
+            <div class="container">
+                <div class="case-study-list">
+                    <!--
+                      Case study 1: Internal AI tooling — sanitised, generic.
+                      Frames an internal Yudame outcome that is honestly
+                      describable without third-party confidentiality.
+                    -->
+                    <article class="case-study">
+                        <div class="case-study-status">Internal practice</div>
+                        <p class="case-study-outcome">
+                            Compressed evidence-gathering cycles from
+                            <span class="accent">days to hours</span>
+                            for a small research team — without expanding
+                            headcount.
+                        </p>
+                        <p class="case-study-title">
+                            AI-forward research tooling — Yudame internal
+                        </p>
+                        <div class="case-study-fields">
+                            <div class="case-study-field">
+                                <h4>Context</h4>
+                                <p>
+                                    Yudame's own research practice needed to
+                                    move faster on evidence-gathering for
+                                    sector briefs and vendor positioning work.
+                                    A two-person team was the bottleneck on
+                                    every report.
+                                </p>
+                            </div>
+                            <div class="case-study-field">
+                                <h4>What we did</h4>
+                                <p>
+                                    Built an AI-forward tooling layer that
+                                    pulls primary sources, drafts structured
+                                    summaries, and flags gaps for human
+                                    review. Designed it as a workflow the
+                                    team could operate, audit, and extend on
+                                    their own.
+                                </p>
+                            </div>
+                            <div class="case-study-field">
+                                <h4>Result</h4>
+                                <p>
+                                    Research cycle time dropped from
+                                    multi-day to same-day on a typical brief.
+                                    The capability is owned in-house: the
+                                    team runs it, tunes it, and knows where
+                                    its limits are. No external dependency
+                                    locked in.
+                                </p>
+                            </div>
+                        </div>
+                        <p class="case-study-stack">
+                            <strong>Capabilities</strong>
+                            AI-forward development · context engineering ·
+                            knowledge transfer
+                        </p>
+                    </article>
+
+                    <!--
+                      Case study 2: Pacific telecom placeholder.
+                      CONFIDENTIALITY-CRITICAL: do NOT add any of the following
+                      to this card, alt text, or commit messages:
+                        - Country, island group, or any geography narrower than "Pacific subregion"
+                        - Carrier name, parent company, partner bank, or partner agency
+                        - Subscriber count, transaction volume, deployment dates, launch dates
+                        - Product name or category that uniquely identifies the engagement
+                        - Logo, favicon, or visual mark
+                      Ceiling of specificity: "Pacific telecom operator — details
+                      pending public launch."
+                    -->
+                    <article class="case-study">
+                        <div class="case-study-status">
+                            Case study pending — placeholder content
+                        </div>
+                        <p class="case-study-outcome">
+                            Building resilient mobile financial infrastructure
+                            for an
+                            <span class="accent">underserved market</span>
+                            in the Pacific subregion.
+                        </p>
+                        <p class="case-study-title">
+                            Pacific telecom operator — details pending public
+                            launch
+                        </p>
+                        <div class="case-study-fields">
+                            <div class="case-study-field">
+                                <h4>Context</h4>
+                                <p>
+                                    A telecom operator in the Pacific
+                                    subregion working on inclusive digital
+                                    transformation for customers with limited
+                                    access to formal financial services.
+                                    Engagement is currently under active
+                                    delivery; specifics will be published
+                                    after the client's public launch.
+                                </p>
+                            </div>
+                            <div class="case-study-field">
+                                <h4>What we did</h4>
+                                <p>
+                                    AI-forward product and engineering
+                                    partnership across digital financial
+                                    services workstreams. Scope and detail
+                                    pending public launch.
+                                </p>
+                            </div>
+                            <div class="case-study-field">
+                                <h4>Result</h4>
+                                <p>
+                                    Outcomes will be reported against
+                                    inclusion and capacity-building measures
+                                    — users reached, services made
+                                    accessible, and capability transferred to
+                                    the operator's own team. Full numbers
+                                    pending public launch.
+                                </p>
+                            </div>
+                        </div>
+                        <p class="case-study-stack">
+                            <strong>Capabilities</strong>
+                            Digital financial services · inclusive digital
+                            transformation · capacity building
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing note -->
+        <section class="closing-note">
+            <div class="container">
+                <div class="closing-content">
+                    <p>
+                        We work toward
+                        <span class="highlight"
+                            >inclusive digital transformation</span
+                        >
+                        across Asia and the Pacific — with a working bias
+                        toward digital public infrastructure, digital
+                        financial services, and capacity that stays with the
+                        client after delivery.
+                    </p>
+                    <p>
+                        More case studies are in the queue and will land here
+                        as engagements clear public-launch windows.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Yudame. All rights reserved.
+                </p>
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
