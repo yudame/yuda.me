@@ -75,6 +75,48 @@
                 animation: fadeIn 1s ease-out;
             }
 
+            /* Scroll affordance — anchor link at the bottom of every full-viewport hero */
+            .hero-scroll {
+                position: absolute;
+                bottom: 2.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 32px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--text-gray);
+                opacity: 0;
+                animation:
+                    fadeIn 1s ease-out 1.6s forwards,
+                    heroScrollNudge 2.4s ease-in-out 2.6s infinite;
+                transition:
+                    color 0.3s ease,
+                    transform 0.3s ease;
+            }
+
+            .hero-scroll:hover {
+                color: var(--black);
+            }
+
+            .hero-scroll svg {
+                width: 18px;
+                height: 18px;
+                stroke: currentColor;
+                stroke-width: 1.5;
+                fill: none;
+            }
+
+            @keyframes heroScrollNudge {
+                0%, 100% {
+                    transform: translate(-50%, 0);
+                }
+                50% {
+                    transform: translate(-50%, 6px);
+                }
+            }
+
             .hero-content {
                 text-align: center;
                 position: relative;
@@ -572,10 +614,23 @@
                     </h1>
                 </div>
             </div>
+            <a
+                href="#philosophy"
+                class="hero-scroll"
+                aria-label="Scroll to philosophy"
+            >
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6 9l6 6 6-6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </a>
         </section>
 
         <!-- Philosophy Section -->
-        <section class="philosophy">
+        <section class="philosophy" id="philosophy">
             <div class="container">
                 <div class="philosophy-content">
                     <p>
