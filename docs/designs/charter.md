@@ -83,6 +83,14 @@ The desaturated `#f5d563` is retired. Yellow is never a text color
 on white. The black contact band is the only dark surface; yellow
 on `#0a0a0a` (CTA) and white on `#0a0a0a` both clear WCAG AA.
 
+Client logos are the one documented exception to the color rules:
+they appear in full brand color. A third-party mark carries its own
+identity (Cyndra's black tile, Bumble's yellow hexagon) and is read
+as *theirs*, not as Yudame's accent — so the one-committed-yellow
+rule still governs only Yudame's own UI (the CTA, ticks, dots), not
+the logos. Keep them small and uniform (44px box) so they verify the
+track record without becoming a logo wall.
+
 ## Voice & tone
 
 - Every claim site-wide must be true today. Future intent is stated
@@ -94,6 +102,12 @@ on `#0a0a0a` (CTA) and white on `#0a0a0a` both clear WCAG AA.
   public domain (tomcounsell.com/resume.html, public announcements)
   — the page is titled Track Record, not Case Studies, for exactly
   this reason: it claims what a CV claims, nothing more.
+- Say what we are, never what we are not. State the positive directly;
+  do not define the firm by negation or contrast with a worse option.
+  "Outcomes over outputs", not "Outcomes, not outputs"; "owned from
+  day one", not "no vendor lock-in". A negation smuggles the thing we
+  reject into the reader's head and frames us as the lesser of two —
+  the positive claim stands on its own.
 - No defensive framing ("behind that claim", "proof:", "we can back
   this up"). Accomplishments are stated plainly, as lists of provable
   fact — nothing to defend, no preamble, no filler.
@@ -117,10 +131,13 @@ on `#0a0a0a` (CTA) and white on `#0a0a0a` both clear WCAG AA.
   system CSS lives after the directives). Pages carry NO inline
   `<style>` blocks. If a rule is needed twice, it lives in the
   stylesheet; if needed once, it still does.
-- Universal footer on every page: nav (Track Record · Pacific
-  Telecom · Security) + copyright. No dead-end pages.
-- Back-link convention: top-left, arrow + "Yudame", on every
-  subpage, identically.
+- Universal footer on every page: nav (Track Record · Security) +
+  copyright. No dead-end pages. (Pacific Telecom is a live page but
+  intentionally not in the footer nav — the practice is prospective
+  and stays unsurfaced until it is real.)
+- Back-link convention: top-left, back-arrow + the Yudame brand
+  wordmark (`logo-brand-trans.png`), on every subpage, identically.
+  Branded, never a monospace label.
 - Contact section (black band, Lora heading, one yellow CTA)
   precedes the footer on every page. Contact is via LinkedIn only —
   Tom Counsell, `linkedin.com/in/tomcounsell`. No email addresses

@@ -135,7 +135,8 @@ h3 {
     animation: underlineReveal 1s ease-out 1s both;
 }
 
-/* ---- Back link (subpages; one convention sitewide) ---- */
+/* ---- Back link (subpages; one convention sitewide) ----
+   The Yudame brand wordmark, not a label — branded, not monospace. */
 .back-link {
     position: absolute;
     top: 2rem;
@@ -146,9 +147,6 @@ h3 {
     gap: 0.5rem;
     text-decoration: none;
     color: var(--text-gray);
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    letter-spacing: 0.06em;
     transition: color 0.3s ease;
     animation: fadeIn 1s ease-out 0.2s both;
     padding: 0.5rem;
@@ -167,6 +165,12 @@ h3 {
 
 .back-link:hover svg {
     transform: translateX(-3px);
+}
+
+.back-link-logo {
+    height: 18px;
+    width: auto;
+    display: block;
 }
 
 /* ---- Sections ---- */
@@ -327,14 +331,83 @@ section.alt {
     margin-bottom: 1.25rem;
 }
 
-.case-study-title {
+/* Card header: full-color client logo + name + website (top-left),
+   role + period (top-right). Client logos are the one place a brand's
+   own color — including yellow — is allowed; see charter §Color. */
+.case-study-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+a.case-study-client {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    text-decoration: none;
+}
+
+.case-study-logo {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.case-study-client-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.case-study-name {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: var(--black);
+}
+
+.case-study-site {
+    display: inline-flex;
+    align-items: center;
     font-family: var(--font-mono);
     font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: var(--text-gray);
+    transition: color 0.3s ease;
+}
+
+.case-study-role {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-gray);
-    margin-bottom: 2rem;
+}
+
+.ext-arrow {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-left: 0.4rem;
+    vertical-align: -1px;
+    color: var(--text-gray);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+a.case-study-client:hover .case-study-site {
+    color: var(--black);
+}
+
+a.case-study-client:hover .ext-arrow {
+    transform: translate(2px, -2px);
+    color: var(--black);
 }
 
 .case-study-fields {
@@ -357,21 +430,28 @@ section.alt {
     color: var(--black);
 }
 
-.case-study-stack {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--text-gray);
+/* Stack rendered as eyebrow-style tags (no "Stack" label) */
+.case-study-tags {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid #f0f0f0;
-    letter-spacing: 0.02em;
 }
 
-.case-study-stack strong {
+.case-study-tags li {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
     font-weight: 500;
-    color: var(--text-gray);
-    text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-right: 0.5rem;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    line-height: 1;
 }
 
 /* Designed pending state — a labeled promise, never raw brackets */
