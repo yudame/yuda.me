@@ -9,7 +9,8 @@ module.exports = {
         'yudame-dark': '#1F2937',
       },
       fontFamily: {
-        'raleway': ['Raleway', 'sans-serif'],
+        'lora': ['Lora', 'Georgia', 'serif'],
+        'plex-mono': ['IBM Plex Mono', 'monospace'],
       },
     },
   },

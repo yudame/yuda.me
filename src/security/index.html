@@ -18,360 +18,30 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/styles.css" />
-        <style>
-            :root {
-                --yellow: #f5d563;
-                --black: #0a0a0a;
-                --white: #ffffff;
-                --warm-gray: #fafafa;
-                --text-gray: #666666;
-            }
-
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family:
-                    "Inter",
-                    -apple-system,
-                    BlinkMacSystemFont,
-                    sans-serif;
-                color: var(--black);
-                background: var(--white);
-                line-height: 1.6;
-                overflow-x: hidden;
-            }
-
-            /* Typography */
-            h1 {
-                font-size: clamp(2.5rem, 6vw, 4.5rem);
-                font-weight: 300;
-                letter-spacing: -0.02em;
-                line-height: 1.1;
-            }
-
-            h2 {
-                font-size: clamp(1.5rem, 3vw, 2rem);
-                font-weight: 300;
-                letter-spacing: -0.01em;
-                line-height: 1.2;
-                margin-bottom: 1.5rem;
-            }
-
-            h3 {
-                font-size: 1.125rem;
-                font-weight: 500;
-                margin-bottom: 0.75rem;
-            }
-
-            p {
-                color: var(--text-gray);
-                line-height: 1.7;
-            }
-
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 2rem;
-            }
-
-            /* Back link */
-            .back-link {
-                position: absolute;
-                top: 2rem;
-                left: 2rem;
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                color: var(--text-gray);
-                text-decoration: none;
-                font-size: 0.875rem;
-                font-weight: 400;
-                transition: color 0.3s ease;
-                z-index: 10;
-                animation: fadeIn 1s ease-out 0.2s both;
-            }
-
-            .back-link:hover {
-                color: var(--black);
-            }
-
-            .back-link svg {
-                width: 16px;
-                height: 16px;
-                transition: transform 0.3s ease;
-            }
-
-            .back-link:hover svg {
-                transform: translateX(-2px);
-            }
-
-            /* Hero */
-            .hero {
-                padding: 10rem 0 6rem;
-                animation: fadeIn 1s ease-out;
-                position: relative;
-            }
-
-            .hero-content {
-                max-width: 800px;
-            }
-
-            .hero h1 {
-                animation: fadeInUp 1s ease-out 0.3s both;
-            }
-
-            .hero h1 .accent {
-                position: relative;
-                display: inline-block;
-                transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .hero h1 .accent::after {
-                content: "";
-                position: absolute;
-                bottom: 0.1em;
-                left: 0;
-                width: 100%;
-                height: 2px;
-                background: var(--yellow);
-                animation: underlineReveal 1s ease-out 1s both;
-                transition:
-                    height 0.3s ease,
-                    bottom 0.3s ease;
-            }
-
-            .hero h1:hover .accent::after {
-                height: 3px;
-                bottom: 0.05em;
-            }
-
-            .hero-subtitle {
-                margin-top: 2rem;
-                font-size: 1.125rem;
-                color: var(--text-gray);
-                max-width: 640px;
-                animation: fadeInUp 1s ease-out 0.5s both;
-            }
-
-            /* Sections */
-            section {
-                padding: 5rem 0;
-                animation: fadeIn 1s ease-out;
-            }
-
-            section.alt {
-                background: var(--warm-gray);
-            }
-
-            .section-content {
-                max-width: 820px;
-            }
-
-            .section-content p + p {
-                margin-top: 1rem;
-            }
-
-            .section-content ul {
-                list-style: none;
-                margin-top: 1.25rem;
-            }
-
-            .section-content ul li {
-                position: relative;
-                padding-left: 1.5rem;
-                margin-bottom: 0.75rem;
-                color: var(--text-gray);
-                line-height: 1.7;
-            }
-
-            .section-content ul li::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0.65em;
-                width: 6px;
-                height: 2px;
-                background: var(--yellow);
-            }
-
-            .section-content strong {
-                color: var(--black);
-                font-weight: 500;
-            }
-
-            /* Contact card */
-            .contact-card {
-                margin-top: 2rem;
-                padding: 2rem;
-                background: var(--white);
-                border: 1px solid #e5e5e5;
-                display: inline-block;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .contact-card:hover {
-                border-color: var(--yellow);
-            }
-
-            .contact-card a {
-                color: var(--black);
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 1.125rem;
-                border-bottom: 2px solid var(--yellow);
-                padding-bottom: 2px;
-                transition: opacity 0.3s ease;
-            }
-
-            .contact-card a:hover {
-                opacity: 0.7;
-            }
-
-            .contact-note {
-                display: block;
-                margin-top: 0.75rem;
-                font-size: 0.875rem;
-                color: var(--text-gray);
-            }
-
-            /* Meta */
-            .meta {
-                margin-top: 3rem;
-                padding-top: 2rem;
-                border-top: 1px solid #e5e5e5;
-                font-size: 0.875rem;
-                color: var(--text-gray);
-            }
-
-            /* Footer */
-            footer {
-                padding: 3rem 0;
-                text-align: center;
-                border-top: 1px solid #e5e5e5;
-            }
-
-            footer p {
-                color: var(--text-gray);
-                font-size: 0.875rem;
-            }
-
-            footer .footer-links {
-                margin-top: 1rem;
-            }
-
-            footer a {
-                color: var(--text-gray);
-                text-decoration: none;
-                margin: 0 1rem;
-                font-size: 0.875rem;
-                transition: color 0.3s ease;
-            }
-
-            footer a:hover {
-                color: var(--black);
-            }
-
-            /* Animations */
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes underlineReveal {
-                from {
-                    width: 0;
-                }
-                to {
-                    width: 100%;
-                }
-            }
-
-            /* Responsive */
-            @media (max-width: 768px) {
-                section {
-                    padding: 4rem 0;
-                }
-
-                .hero {
-                    padding: 7rem 0 4rem;
-                }
-
-                .container {
-                    padding: 0 1.5rem;
-                }
-
-                .back-link {
-                    top: 1.5rem;
-                    left: 1.5rem;
-                }
-            }
-
-            /* Accessibility */
-            :focus {
-                outline: 2px solid var(--yellow);
-                outline-offset: 2px;
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                *,
-                *::before,
-                *::after {
-                    animation-duration: 0.01ms !important;
-                    animation-iteration-count: 1 !important;
-                    transition-duration: 0.01ms !important;
-                }
-            }
-        </style>
     </head>
     <body>
-        <!-- Back to home -->
-        <a href="/" class="back-link" aria-label="Back to home">
-            <svg
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            >
+        <!-- Back to Yudame home -->
+        <a href="/" class="back-link" aria-label="Back to Yudame home">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            Back to home
+            Yudame
         </a>
 
         <!-- Hero -->
-        <section class="hero">
+        <section class="page-hero">
             <div class="container">
                 <div class="hero-content">
+                    <p class="eyebrow">Security &amp; Compliance</p>
                     <h1>
                         Security &amp;
                         <span class="accent">compliance</span>
                     </h1>
-                    <p class="hero-subtitle">
+                    <p class="hero-lede">
                         How we approach security, data protection, and
                         intellectual property when partnering with institutional
                         clients.
@@ -554,9 +224,31 @@
             </div>
         </section>
 
+        <!-- Contact band — the one full-strength yellow moment on this page -->
+        <section class="contact-band">
+            <div class="container">
+                <div class="contact-band-content">
+                    <span class="eyebrow">Contact</span>
+                    <h2>Start a conversation</h2>
+                    <p>
+                        For everything beyond security review — partnerships,
+                        programs, procurement — reach us at
+                        <a href="mailto:hello@yuda.me">hello@yuda.me</a>.
+                    </p>
+                    <a href="mailto:hello@yuda.me" class="btn-cta">Email us</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer>
             <div class="container">
+                <nav class="footer-links" aria-label="Site sections">
+                    <a href="/">Home</a>
+                    <a href="/case-studies/">Case Studies</a>
+                    <a href="/pacific-telecom/">Pacific Telecom</a>
+                    <a href="/security/">Security</a>
+                </nav>
                 <p>
                     &copy;
                     <script>

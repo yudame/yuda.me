@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Single-page business website for Yudame, deployed on GitHub Pages at `yuda.me`. Corporate homepage showcasing Yudame as an innovation lab.
+Static business website for Yudame, deployed on GitHub Pages at `yuda.me`. Corporate site (homepage + practice/case-study/security pages) positioning Yudame as a product engineering studio for development banks, governments, and operators across Asia and the Pacific.
 
 ## Development Commands
 
@@ -41,8 +41,13 @@ npm run dev          # Tailwind watch + local server on port 8080
 ```
 yuda.me/
 ├── src/                    # Source files (edit these)
-│   ├── index.html         # Homepage (only page)
-│   └── styles.css         # Tailwind input file
+│   ├── index.html         # Homepage
+│   ├── case-studies/      # /case-studies/ page
+│   ├── pacific-telecom/   # /pacific-telecom/ practice page
+│   ├── security/          # /security/ compliance page
+│   └── styles.css         # Tailwind input + shared design system CSS
+├── docs/designs/           # Design charter and .pen files
+│   └── charter.md         # THE design contract — read before visual changes
 ├── dist/                   # Built files (auto-generated, gitignored)
 ├── assets/                 # Static images
 │   ├── logos/             # Company logos and favicons
@@ -52,7 +57,7 @@ yuda.me/
 
 ### Key Architectural Decisions
 - **No JavaScript framework** - All interactivity via inline `<script>` tags in HTML
-- **Tailwind utility classes** - All styling via Tailwind, custom styles in HTML `<style>` tags
+- **One stylesheet** - All styling lives in `src/styles.css` (shared design-system CSS after the Tailwind directives). Pages carry NO inline `<style>` blocks — see `docs/designs/charter.md`
 - **GitHub Pages deployment** - Automatic via GitHub Actions on push to main
 - **Static images** - Served directly from `assets/` directory (not base64 encoded)
 
@@ -62,10 +67,9 @@ This is the marketing landing page only. The main application lives at `app.yuda
 
 ### Development Guidelines
 - Keep all JavaScript inline in HTML `<script>` tags
-- Use Tailwind utility classes for all styling
+- Style via the shared classes in `src/styles.css`; new rules go there, never inline
 - Test locally with `npm run dev` before pushing
-- Maintain brand colors via Tailwind config: `yudame-yellow` (#FFC107), `yudame-red` (#DC2626), `yudame-dark` (#1F2937)
-- Use Raleway font family (configured as `font-raleway`)
+- Design language (see `docs/designs/charter.md`): Lora 500 for headings, Inter for body, IBM Plex Mono for labels/buttons. Accent `--yellow` (#FFC107) at full strength exactly once per page (the CTA); elsewhere a line/tick/dot. Raleway is retired (2026-06-12)
 
 ## Deployment Process
 

@@ -12,586 +12,21 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/styles.css" />
-        <style>
-            :root {
-                --yellow: #f5d563;
-                --black: #0a0a0a;
-                --white: #ffffff;
-                --warm-gray: #fafafa;
-                --text-gray: #666666;
-            }
-
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family:
-                    "Inter",
-                    -apple-system,
-                    BlinkMacSystemFont,
-                    sans-serif;
-                color: var(--black);
-                background: var(--white);
-                line-height: 1.6;
-                overflow-x: hidden;
-            }
-
-            /* Typography */
-            h1 {
-                font-size: clamp(2.5rem, 6vw, 4.5rem);
-                font-weight: 300;
-                letter-spacing: -0.02em;
-                line-height: 1.1;
-            }
-
-            h2 {
-                font-size: clamp(1.75rem, 4vw, 2.5rem);
-                font-weight: 300;
-                letter-spacing: -0.01em;
-                line-height: 1.2;
-                margin-bottom: 1.5rem;
-            }
-
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 2rem;
-            }
-
-            /* Hero Section */
-            .hero {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                animation: fadeIn 1s ease-out;
-            }
-
-            /* Scroll affordance — anchor link at the bottom of every full-viewport hero */
-            .hero-scroll {
-                position: absolute;
-                bottom: 2.5rem;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 32px;
-                height: 32px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--text-gray);
-                opacity: 0;
-                animation:
-                    fadeIn 1s ease-out 1.6s forwards,
-                    heroScrollNudge 2.4s ease-in-out 2.6s infinite;
-                transition:
-                    color 0.3s ease,
-                    transform 0.3s ease;
-            }
-
-            .hero-scroll:hover {
-                color: var(--black);
-            }
-
-            .hero-scroll svg {
-                width: 18px;
-                height: 18px;
-                stroke: currentColor;
-                stroke-width: 1.5;
-                fill: none;
-            }
-
-            @keyframes heroScrollNudge {
-                0%, 100% {
-                    transform: translate(-50%, 0);
-                }
-                50% {
-                    transform: translate(-50%, 6px);
-                }
-            }
-
-            .hero-content {
-                text-align: center;
-                position: relative;
-                z-index: 2;
-            }
-
-            .logo {
-                width: 240px;
-                height: auto;
-                margin: 0 auto 8rem;
-                animation: fadeInUp 1s ease-out 0.2s both;
-            }
-
-            .logo img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-
-            .hero h1 {
-                animation: fadeInUp 1s ease-out 0.4s both;
-            }
-
-            .hero h1 .accent {
-                position: relative;
-                display: inline-block;
-            }
-
-            .hero h1 .accent {
-                position: relative;
-                display: inline-block;
-                transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .hero h1 .accent::after {
-                content: "";
-                position: absolute;
-                bottom: 0.1em;
-                left: 0;
-                width: 100%;
-                height: 2px;
-                background: var(--yellow);
-                animation: underlineReveal 1s ease-out 1.2s both;
-                transition:
-                    height 0.3s ease,
-                    bottom 0.3s ease;
-            }
-
-            .hero h1:hover .accent::after {
-                height: 3px;
-                bottom: 0.05em;
-            }
-
-            /* Geometric Pattern */
-            .geometric-pattern {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 600px;
-                height: 600px;
-                opacity: 0.03;
-                animation: rotatePattern 60s linear infinite;
-                pointer-events: none;
-            }
-
-            /* Sections */
-            section {
-                padding: 8rem 0;
-                animation: fadeIn 1s ease-out;
-            }
-
-            .philosophy {
-                background: var(--warm-gray);
-            }
-
-            .philosophy-content {
-                max-width: 800px;
-                margin: 0 auto;
-            }
-
-            .philosophy p {
-                font-size: 1.25rem;
-                line-height: 1.8;
-                margin-bottom: 1.5rem;
-                color: var(--text-gray);
-                animation: fadeInUp 1s ease-out;
-            }
-
-            .philosophy .highlight {
-                color: var(--black);
-                font-weight: 500;
-            }
-
-            /* Capabilities */
-            .capabilities-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            @media (min-width: 768px) {
-                .capabilities-grid {
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 3rem;
-                }
-            }
-
-            .capability-card {
-                padding: 2rem;
-                background: var(--white);
-                border: 1px solid #e5e5e5;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                animation: fadeInUp 1s ease-out;
-            }
-
-            .capability-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-                border-color: var(--yellow);
-            }
-
-            .capability-card h3 {
-                font-size: 1.25rem;
-                font-weight: 500;
-                margin-bottom: 1rem;
-            }
-
-            .capability-card p {
-                color: var(--text-gray);
-                line-height: 1.6;
-            }
-
-            /* Work Links */
-            .work-links {
-                display: flex;
-                justify-content: center;
-                gap: 2rem;
-                margin-top: 4rem;
-                flex-wrap: wrap;
-            }
-
-            .work-link {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                padding: 1rem 1.5rem;
-                text-decoration: none;
-                color: var(--text-gray);
-                border: 1px solid #e5e5e5;
-                background: var(--white);
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                animation: fadeInUp 1s ease-out 0.5s both;
-            }
-
-            .work-link:hover {
-                border-color: var(--yellow);
-                color: var(--black);
-                transform: translateX(4px);
-            }
-
-            .work-link-title {
-                font-weight: 500;
-                font-size: 1rem;
-            }
-
-            .work-link-desc {
-                font-size: 0.875rem;
-                opacity: 0.7;
-            }
-
-            .work-link-arrow {
-                width: 20px;
-                height: 20px;
-                flex-shrink: 0;
-                opacity: 0.5;
-                transition: all 0.3s ease;
-            }
-
-            .work-link:hover .work-link-arrow {
-                opacity: 1;
-                transform: translateX(4px);
-            }
-
-            @media (max-width: 768px) {
-                .work-links {
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 1rem;
-                }
-
-                .work-link {
-                    width: 100%;
-                    max-width: 320px;
-                }
-            }
-
-            /* About */
-            .about {
-                background: var(--warm-gray);
-            }
-
-            .team-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 4rem;
-                margin-top: 4rem;
-            }
-
-            .team-member {
-                text-align: center;
-                animation: fadeInUp 1s ease-out;
-            }
-
-            .team-photo {
-                width: 250px;
-                height: 250px;
-                margin: 0 auto 2rem;
-                position: relative;
-                border-radius: 50%;
-                overflow: hidden;
-                background: linear-gradient(
-                    135deg,
-                    rgba(245, 213, 99, 0.1) 0%,
-                    rgba(245, 213, 99, 0.05) 25%,
-                    transparent 50%,
-                    rgba(245, 213, 99, 0.05) 75%,
-                    rgba(245, 213, 99, 0.1) 100%
-                );
-                padding: 3px;
-                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            @media (min-width: 768px) {
-                .team-photo {
-                    width: 400px;
-                    height: 400px;
-                }
-            }
-
-            .team-photo::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                border-radius: 50%;
-                padding: 2px;
-                background: linear-gradient(
-                    135deg,
-                    rgba(245, 213, 99, 0.3),
-                    transparent 40%,
-                    transparent 60%,
-                    rgba(245, 213, 99, 0.2)
-                );
-                -webkit-mask:
-                    linear-gradient(#fff 0 0) content-box,
-                    linear-gradient(#fff 0 0);
-                -webkit-mask-composite: exclude;
-                mask-composite: exclude;
-                opacity: 0;
-                transition: opacity 0.5s ease;
-            }
-
-            .team-photo-inner {
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                overflow: hidden;
-                position: relative;
-                background: #f5f5f5;
-            }
-
-            .team-photo img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                filter: grayscale(100%) brightness(1.15) contrast(1.1);
-                transition:
-                    filter 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .team-member:hover .team-photo {
-                transform: scale(1.01);
-                background: linear-gradient(
-                    135deg,
-                    rgba(245, 213, 99, 0.2) 0%,
-                    rgba(245, 213, 99, 0.1) 25%,
-                    transparent 50%,
-                    rgba(245, 213, 99, 0.1) 75%,
-                    rgba(245, 213, 99, 0.2) 100%
-                );
-            }
-
-            .team-member:hover .team-photo::before {
-                opacity: 1;
-            }
-
-            .team-member:hover .team-photo img {
-                filter: grayscale(100%) brightness(1.15) contrast(1.1);
-                transform: scale(1.01);
-            }
-
-            .team-member h3 {
-                font-size: 1.5rem;
-                font-weight: 400;
-                margin-bottom: 1rem;
-            }
-
-            .team-member-info {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.75rem;
-            }
-
-            .team-member-info p {
-                color: var(--text-gray);
-                font-size: 1rem;
-                white-space: nowrap;
-                margin: 0;
-            }
-
-            .social-links {
-                display: flex;
-                gap: 1rem;
-            }
-
-            .social-links a {
-                display: block;
-                color: var(--text-gray);
-                transition: all 0.3s ease;
-            }
-
-            .social-links a:hover {
-                color: var(--black);
-                transform: translateY(-2px);
-            }
-
-            .social-links svg {
-                width: 20px;
-                height: 20px;
-                fill: currentColor;
-            }
-
-            /* Footer */
-            footer {
-                padding: 3rem 0;
-                text-align: center;
-                border-top: 1px solid #e5e5e5;
-            }
-
-            footer p {
-                color: var(--text-gray);
-                font-size: 0.875rem;
-            }
-
-            footer .footer-links {
-                margin-top: 1rem;
-            }
-
-            footer a {
-                color: var(--text-gray);
-                text-decoration: none;
-                margin: 0 1rem;
-                font-size: 0.875rem;
-                transition: color 0.3s ease;
-            }
-
-            footer a:hover {
-                color: var(--black);
-            }
-
-            /* Animations */
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes underlineReveal {
-                to {
-                    width: 100%;
-                }
-            }
-
-            @keyframes rotatePattern {
-                from {
-                    transform: translate(-50%, -50%) rotate(0deg);
-                }
-                to {
-                    transform: translate(-50%, -50%) rotate(360deg);
-                }
-            }
-
-            /* Staggered animations */
-            .capability-card:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-            .capability-card:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-            .capability-card:nth-child(3) {
-                animation-delay: 0.3s;
-            }
-            .capability-card:nth-child(4) {
-                animation-delay: 0.4s;
-            }
-
-            .team-member:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-            .team-member:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-
-            /* Responsive */
-            @media (max-width: 768px) {
-                section {
-                    padding: 4rem 0;
-                }
-
-                .container {
-                    padding: 0 1.5rem;
-                }
-
-                .capabilities-grid {
-                    gap: 2rem;
-                }
-
-                .team-grid {
-                    gap: 3rem;
-                }
-            }
-
-            /* Accessibility */
-            :focus {
-                outline: 2px solid var(--yellow);
-                outline-offset: 2px;
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                *,
-                *::before,
-                *::after {
-                    animation-duration: 0.01ms !important;
-                    animation-iteration-count: 1 !important;
-                    transition-duration: 0.01ms !important;
-                }
-            }
-        </style>
     </head>
     <body>
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero-home">
             <!-- Geometric Pattern Background -->
             <svg
                 class="geometric-pattern"
                 viewBox="0 0 600 600"
                 xmlns="http://www.w3.org/2000/svg"
             >
-                <g stroke="#F5D563" stroke-width="1" fill="none">
+                <g stroke="#FFC107" stroke-width="1" fill="none">
                     <path d="M300,50 L550,300 L300,550 L50,300 Z" />
                     <path d="M300,150 L450,300 L300,450 L150,300 Z" />
                     <path d="M300,250 L350,300 L300,350 L250,300 Z" />
@@ -612,6 +47,26 @@
                         <span class="accent">exceptional</span>
                         products
                     </h1>
+                    <p class="hero-sub">
+                        An AI-enabled product engineering studio working with
+                        development banks, governments, and operators across
+                        Asia and the Pacific.
+                    </p>
+                    <a href="/case-studies/" class="cta-quiet">
+                        View case studies
+                        <svg
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
                 </div>
             </div>
             <a
@@ -630,7 +85,7 @@
         </section>
 
         <!-- Philosophy Section -->
-        <section class="philosophy" id="philosophy">
+        <section class="alt" id="philosophy">
             <div class="container">
                 <div class="philosophy-content">
                     <p>
@@ -649,7 +104,7 @@
                         when the work is done.
                     </p>
                     <!-- DMC / Pacific credentials line — added per issue #6 -->
-                    <p class="mb-0">
+                    <p>
                         US-incorporated, headquartered in
                         <span class="highlight">Thailand</span> — an ADB
                         Developing Member Country (DMC). Partnerships are
@@ -663,8 +118,8 @@
         <!-- Capabilities Section -->
         <section class="capabilities">
             <div class="container">
-                <div class="capabilities-grid">
-                    <div class="capability-card">
+                <div class="card-grid cols-3">
+                    <div class="card">
                         <h3>AI-Enabled Delivery</h3>
                         <p>
                             Context engineering and modern AI tooling to
@@ -673,7 +128,7 @@
                             requires.
                         </p>
                     </div>
-                    <div class="capability-card">
+                    <div class="card">
                         <h3>Product Architecture</h3>
                         <p>
                             Resilient, low-bandwidth-tolerant systems —
@@ -683,7 +138,7 @@
                         </p>
                     </div>
                     <!-- Capacity building / IP transfer card — rewritten per issue #6 -->
-                    <div class="capability-card">
+                    <div class="card">
                         <h3>Capacity Building &amp; IP Transfer</h3>
                         <p>
                             We pair delivery with knowledge transfer and
@@ -715,7 +170,7 @@
         </section>
 
         <!-- About Section -->
-        <section class="about">
+        <section class="alt">
             <div class="container">
                 <div class="team-grid">
                     <div class="team-member">
@@ -829,11 +284,27 @@
             </div>
         </section>
 
+        <!-- Contact band — the one full-strength yellow moment on this page -->
+        <section class="contact-band">
+            <div class="container">
+                <div class="contact-band-content">
+                    <span class="eyebrow">Contact</span>
+                    <h2>Start a conversation</h2>
+                    <p>
+                        Whether you are scoping a digital transformation
+                        program or evaluating delivery partners, reach us at
+                        <a href="mailto:hello@yuda.me">hello@yuda.me</a>.
+                    </p>
+                    <a href="mailto:hello@yuda.me" class="btn-cta">Email us</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer>
             <div class="container">
-                <!-- Footer page links — added per issue #6 -->
                 <nav class="footer-links" aria-label="Site sections">
+                    <a href="/">Home</a>
                     <a href="/case-studies/">Case Studies</a>
                     <a href="/pacific-telecom/">Pacific Telecom</a>
                     <a href="/security/">Security</a>
