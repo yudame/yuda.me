@@ -113,6 +113,10 @@ on `#0a0a0a` (CTA) and white on `#0a0a0a` both clear WCAG AA.
   visible CTA or scroll affordance.
 - ❌ **Don't** ship raw placeholder text ("[metric pending]").
   Pending states are designed and labeled.
+- ❌ **Don't** animate non-clickable elements on hover. Hover motion
+  (lift, shadow, border change, scale) is a click affordance —
+  reserve it for links and buttons. A static card that reacts to
+  the cursor is promising an interaction it can't deliver.
 - ✅ **Do** keep accessibility floors: 2px yellow focus ring on a
   dark offset, `prefers-reduced-motion` honored, body contrast
   ≥4.5:1, tap targets ≥44px.
