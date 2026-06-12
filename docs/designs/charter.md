@@ -9,11 +9,18 @@
 ## Positioning
 
 yuda.me is the corporate surface of Yudame — a US-incorporated,
-Thailand-headquartered product engineering studio serving development
-banks, governments, and operators across Asia and the Pacific. The
-reader is an institutional evaluator: an ADB officer, a vendor
-due-diligence reviewer, a telecom executive. They are time-pressed,
-skeptical of vendor theater, and fluent in procurement.
+Thailand-headquartered product engineering studio with a public,
+named track record (`/track-record/`). The reader is distinguished
+and discerning: a founder, an executive, a due-diligence reviewer.
+They are time-pressed and skeptical of vendor theater.
+
+**We never over-sell. History, legacy, and quality do the talking.**
+The track record carries the persuasion; everything else stays
+quiet. Institutional and regional vocabulary (development banks,
+ADB, the Pacific) lives on `/pacific-telecom/` only — the practice
+there is new and prospective (one tentative engagement, one bank,
+one government), and must never be inflated into plural clients or
+a regional focus the firm does not yet have.
 
 The site should read like the firm it describes: precise, convicted,
 unhurried. Editorial restraint says *you are in capable hands*;
@@ -78,11 +85,27 @@ on `#0a0a0a` (CTA) and white on `#0a0a0a` both clear WCAG AA.
 
 ## Voice & tone
 
+- Every claim site-wide must be true today. Future intent is stated
+  as intent ("now focused on", "bringing this practice to"), never
+  as current fact. No page may imply an engagement exists before a
+  signed contract does.
+- Named engagements make resume-grade claims only: role held,
+  period, publicly verifiable outcomes. Source of record is the
+  public domain (tomcounsell.com/resume.html, public announcements)
+  — the page is titled Track Record, not Case Studies, for exactly
+  this reason: it claims what a CV claims, nothing more.
+- No defensive framing ("behind that claim", "proof:", "we can back
+  this up"). Accomplishments are stated plainly, as lists of provable
+  fact — nothing to defend, no preamble, no filler.
 - Sentence case body; mono UPPERCASE only where a label is the point.
 - Avoid: emoji, exclamation marks, "simply", "easy", marketing
   superlatives, second-person salesmanship.
 - Button labels: uppercase mono, imperative, ≤3 words —
   "START A CONVERSATION", "EMAIL US". Never "Learn more".
+- Links name their destination, nothing else: "TRACK RECORD", not
+  "SEE THE TRACK RECORD". No verb decoration ("See the", "View",
+  "Explore"), no qualifying-question lead-ins before contact lines
+  ("Interested in…?", "Whether you are…").
 - Confidentiality ceilings (Pacific pages) override every other
   rule: regional framing only until partners launch publicly.
 - Pending content is a feature, not an apology: designed status
@@ -94,12 +117,14 @@ on `#0a0a0a` (CTA) and white on `#0a0a0a` both clear WCAG AA.
   system CSS lives after the directives). Pages carry NO inline
   `<style>` blocks. If a rule is needed twice, it lives in the
   stylesheet; if needed once, it still does.
-- Universal footer on every page: nav (Case Studies · Pacific
+- Universal footer on every page: nav (Track Record · Pacific
   Telecom · Security) + copyright. No dead-end pages.
 - Back-link convention: top-left, arrow + "Yudame", on every
   subpage, identically.
-- Contact section (black band, Lora heading, one yellow CTA,
-  `hello@yuda.me`) precedes the footer on every page.
+- Contact section (black band, Lora heading, one yellow CTA)
+  precedes the footer on every page. Contact is via LinkedIn only —
+  Tom Counsell, `linkedin.com/in/tomcounsell`. No email addresses
+  are published anywhere on the site.
 
 ## Do's and don'ts
 

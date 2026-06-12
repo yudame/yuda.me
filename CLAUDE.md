@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static business website for Yudame, deployed on GitHub Pages at `yuda.me`. Corporate site (homepage + practice/case-study/security pages) positioning Yudame as a product engineering studio for development banks, governments, and operators across Asia and the Pacific.
+Static business website for Yudame, deployed on GitHub Pages at `yuda.me`. Corporate site (homepage + track-record/practice/security pages) for a product engineering studio with a named, public track record. The brand never over-sells — history, legacy, and quality do the talking (see the brand voice doc below).
 
 ## Development Commands
 
@@ -42,7 +42,7 @@ npm run dev          # Tailwind watch + local server on port 8080
 yuda.me/
 ├── src/                    # Source files (edit these)
 │   ├── index.html         # Homepage
-│   ├── case-studies/      # /case-studies/ page
+│   ├── track-record/      # /track-record/ page (named client engagements)
 │   ├── pacific-telecom/   # /pacific-telecom/ practice page
 │   ├── security/          # /security/ compliance page
 │   └── styles.css         # Tailwind input + shared design system CSS
@@ -63,13 +63,24 @@ yuda.me/
 
 ## Important Context
 
-This is the marketing landing page only. The main application lives at `app.yuda.me`. Primary CTA directs to `https://app.yuda.me/getting-started/0/`.
+This is the corporate marketing site only. The primary CTA on every page is the contact band; **contact is via LinkedIn only** (`linkedin.com/in/tomcounsell`) — never add email addresses anywhere on the site.
+
+### Documentation map — read before editing
+
+A fresh agent needs exactly three documents, in this order:
+
+1. **`docs/designs/charter.md`** — THE contract for this site: positioning, typography, color, voice rules, structure conventions, do's/don'ts. Every design or copy change is tested against it. If the rules need to change, change the charter FIRST.
+2. **`~/work-vault/Yudame/branding.md`** — company-wide brand voice (never over-sell; plain lists of provable fact; no defensive framing; every claim true-today; resume-grade claims only for client work; internal context is never copy). Applies to all Yudame writing, not just this site.
+3. **Page-level HTML comments** — each page in `src/` carries its own binding constraints in a comment at the top of `<head>` (confidentiality ceilings on `pacific-telecom/`, editorial conventions on `track-record/`, true-today rule on `security/`). Read them before editing that page.
+
+`docs/plans/` and `docs/research/` are **historical records** of past issues — several predate and contradict current decisions (e.g., they describe a `/case-studies/` page and a "pending engagement" card that were deliberately removed). Never treat them as current guidance; the charter supersedes them.
 
 ### Development Guidelines
 - Keep all JavaScript inline in HTML `<script>` tags
 - Style via the shared classes in `src/styles.css`; new rules go there, never inline
 - Test locally with `npm run dev` before pushing
 - Design language (see `docs/designs/charter.md`): Lora 500 for headings, Inter for body, IBM Plex Mono for labels/buttons. Accent `--yellow` (#FFC107) at full strength exactly once per page (the CTA); elsewhere a line/tick/dot. Raleway is retired (2026-06-12)
+- **Voice** (read `~/work-vault/Yudame/branding.md` before writing copy): never over-sell; accomplishments as plain lists of provable fact; no defensive framing; every claim true-today; resume-grade claims only for client work; internal context is never copy
 
 ## Deployment Process
 
@@ -81,4 +92,6 @@ This is the marketing landing page only. The main application lives at `app.yuda
 
 ## Business Context
 
-For business context, project notes, and assets see the work vault: `~/src/work-vault/Yudame/`
+For business context, project notes, and assets see the work vault: `~/work-vault/Yudame/`
+
+- **Brand & voice doc**: `~/work-vault/Yudame/branding.md` — the contract for what Yudame says and how it sounds, everywhere (site copy, proposals, emails). The repo's `docs/designs/charter.md` is the visual implementation contract for this site specifically.
