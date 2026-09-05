@@ -309,6 +309,7 @@ section.alt {
 }
 
 .case-study {
+    scroll-margin-top: 2rem;
     padding: 3rem;
     background: var(--white);
     border: 1px solid var(--border-gray);
@@ -589,6 +590,21 @@ a.case-study-client:hover .ext-arrow {
     outline-color: var(--white);
 }
 
+/* Inline accent link: black text on a yellow line (the running motif
+   at link weight). Company names in the hero use it. */
+.link-accent {
+    color: var(--black);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid var(--yellow);
+    padding-bottom: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.link-accent:hover {
+    opacity: 0.7;
+}
+
 /* Quiet text CTA (heroes; the yellow stays a line here) */
 .cta-quiet {
     display: inline-flex;
@@ -661,6 +677,7 @@ footer a:hover {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
     animation: fadeIn 1s ease-out;
     padding: 0;
 }
@@ -690,14 +707,19 @@ footer a:hover {
 
 .hero-home .hero-sub {
     margin: 2rem auto 0;
-    max-width: 560px;
+    max-width: 620px;
     font-size: 1.125rem;
     line-height: 1.8;
     color: var(--text-gray);
     animation: fadeInUp 1s ease-out 0.6s both;
 }
 
-.hero-home .cta-quiet {
+/* Two quiet CTAs side by side: destination, then contact */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem 2.5rem;
     margin-top: 2.5rem;
     animation: fadeInUp 1s ease-out 0.8s both;
 }
@@ -772,12 +794,34 @@ footer a:hover {
     margin-bottom: 0;
 }
 
-/* Work links (homepage) */
+/* Research and open source (homepage): a compact labeled section
+   after the team, so off-site links come after the human proof */
+.work-section {
+    padding: 5rem 0;
+}
+
+.work-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out;
+}
+
+.work-intro .eyebrow {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.work-intro p {
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
 .work-links {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     flex-wrap: wrap;
 }
 
@@ -837,6 +881,26 @@ footer a:hover {
 }
 
 /* Team (homepage) */
+.team-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 4rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.team-intro .eyebrow {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.team-intro p {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    line-height: 1.4;
+    color: var(--black);
+}
+
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1044,6 +1108,10 @@ footer a:hover {
 
     .contact-band {
         padding: 4rem 0;
+    }
+
+    .work-section {
+        padding: 3.5rem 0;
     }
 }
 
