@@ -223,3 +223,19 @@ This changes how the kernel's chat sessions start tasks. A mistake could
 let a team channel start work in a repo it shouldn't, or break task
 starts in every chat. It lands only through a separate valor task, so it
 can be reverted before it reaches any Mac.
+
+## Built
+
+Branch `valor/yudame-multi-repo` on tomcounsell/ai at c31827ebb, on top
+of origin/main 7ef821a6a. Valor's suite: 384 passed, 1 skipped. Main
+alone gave 375 passed, 1 skipped, and the difference is the nine new
+tests in `tests/test_projects.py`. Three existing tests change because
+the new behaviour moves their assumptions: the child's project now
+carries `chat`, and the #yudame-dev room line changed.
+
+The yudame-tools suite was provisioned with `workspace.provision` from a
+local copy of yudame-tools main (b371b09). It ran the check runner's
+command and environment (`check_harness`, `turn_environment`) inside
+this turn's sandbox, which uses the same turn profile. A second
+`sandbox-exec` cannot nest inside it. Exit 0 in 14 s. The report was at
+`{junit}`, and `read_junit` found 102 passed, 0 failed.
