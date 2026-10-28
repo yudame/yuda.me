@@ -83,17 +83,28 @@ answers (2026-10-28):
    and the Yudame Tools menu-bar Mac app (yudame/yudame-tools)." Update the
    header comment and the #yudame-dev comment, citing Tom, 2026-10-28.
 7. **A child reads the chat it came from** (`tools/chat_tasks.py`,
-   `core/__main__.py` `_reading_env`). Today a child of a chat session
-   carries no `chat`, so `VALOR_CHAT` falls back to its project spec's
-   first `chats`. That gives a yuda.me child the Telegram team chat rather
-   than the Slack channel it came from, and a yudame-tools child (a spec
-   with no `chats`) nothing at all. Fix: `TaskStart` puts the session's
-   own chat in the child's project dict,
-   `project={"name": ..., "chat": "<channel>:<chat id>"}`. `Brief.project`
-   is already a free dict, so nothing in the schema changes, and the board
-   query reads only `name`. `_reading_env` then uses, in order: `b.chat`,
-   then `b.project["chat"]`, then the spec's first `chats` (as today, for
-   tasks started from the command line or a routine).
+   `core/tasks.py` `brief`, `core/__main__.py` `_reading_env`). Today a
+   child of a chat session carries no `chat`. Its `VALOR_CHAT` therefore
+   falls back to its spec's first `chats`: the Telegram team chat for a
+   yuda.me child, and nothing for a yudame-tools child.
+   - `TaskStart` writes the session's own chat into the child's start
+     document as `project={"name": ..., "chat": "<channel>:<chat id>"}`.
+   - Provisioning rebuilds `project` from the spec, with no `chat`, and
+     `tasks.brief` overlays the `workspace.provisioned` fields shallowly
+     (critique 3). Without a change, `chat` would be gone from the first
+     working turn. So `tasks.brief` merges `project` one level deep: the
+     provisioned keys win, and start-time keys the spec does not own (only
+     `chat` today) survive. The fix sits in `brief`, the one reader every
+     consumer goes through. `serve.py` and `workspace.provision` stay as
+     they are.
+   - The child gets no top-level `chat`. That field marks a chat session,
+     and provisioning would drop its setup and services.
+   - `_reading_env` checks, in order: `b.chat`, then `b.project["chat"]`,
+     then the spec's first `chats`. The last is today's behaviour, kept
+     for tasks started from the command line or a routine.
+   - `board.snapshot` and `record.py` read `body->'project'->>'name'` from
+     the start document, and an extra key there does not change them
+     (critique 3, confirmed on origin/main).
 8. **Docs.** `projects/README.md` gets the `projects` key. It also says
    three things about that key:
    - Every chat of the listing project may start tasks in the listed
@@ -119,6 +130,18 @@ SDLC work starts here; ... engineering requests go to the Eng group") is
 what keeps it from doing engineering, for either repo. A per-chat repo list
 would be a second mechanism next to `rooms` for the same concern. The
 delivery names this reading.
+
+**No new governance.** Refusing a project not listed in `projects` adds no
+check, gate or refusal beyond today's scope. Today `task.start` can only
+start tasks in the session's own project. The change widens that to the
+listed projects, and every other repo stays out, as before. The refusal
+goes through `TaskStart.refuse`, the performer's existing return path, and
+no new hook, validator or approval step is added.
+
+**Base.** Branch `valor/yudame-multi-repo` from the current
+tomcounsell/ai origin/main (7ef821a6a at the time of writing, after Brew
+Status folded into Yudame Tools). Run the sandboxed yudame-tools suite at
+yudame-tools' current main, which now carries the Homebrew updates job.
 
 ## Out of scope
 
@@ -146,6 +169,10 @@ delivery names this reading.
 - With `project` set to a name that has no spec, the effect is refused.
 - A session whose project lists no `projects` passing any other name is
   refused.
+- These tests go through `tasks.brief` after a `workspace.provisioned`
+  row is appended (what the turn sees), not a hand-built Brief. A
+  provisioned child started by `task.start` keeps `project["chat"]` and
+  takes `kind`, `suite` and the rest from the provisioned fields.
 - `_reading_env`: a yudame-tools child of the #yudame-dev session gets
   `VALOR_CHAT=slack:T0B6E8JPE3C/C0CBX4MBN1L`. A yuda.me child of that
   session gets the same channel, not `telegram:-4719889199`. A task with
