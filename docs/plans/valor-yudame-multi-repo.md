@@ -239,3 +239,9 @@ command and environment (`check_harness`, `turn_environment`) inside
 this turn's sandbox, which uses the same turn profile. A second
 `sandbox-exec` cannot nest inside it. Exit 0 in 14 s. The report was at
 `{junit}`, and `read_junit` found 102 passed, 0 failed.
+
+Patch after review: removed the handling of an unloadable listed spec in
+`TaskStart._project_refused` and `tasks.repos`, a failure that has not
+happened. The real-spec test holds that every listed spec loads. The
+branch is now at the commit named in done.md. The suite still gives 384
+passed, 1 skipped.
