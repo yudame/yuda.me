@@ -60,20 +60,53 @@ answers (2026-10-28):
    - `repo` and `merge_url` = `https://github.com/yudame/yudame-tools.git`,
      `branch = "main"`, `kind = "plain"`
    - `machine = "Valor the Pirate"`, `knowledge_base = "Yudame"`
-   - suite: `swift test --disable-sandbox --scratch-path .build/valor --xunit-output {junit}`
-     (the repo's own CLAUDE.md says SwiftPM needs `--disable-sandbox`
-     inside a turn).
+   - suite: `swift test --disable-sandbox --disable-xctest --scratch-path .build/valor --xunit-output {junit}`.
+     The repo's own CLAUDE.md says SwiftPM needs `--disable-sandbox`
+     inside a turn. `--disable-xctest` is needed because every test file
+     uses Swift Testing only. Without the flag, `--xunit-output X` writes
+     `X-swift-testing.xml` and nothing at `X`, so `read_junit` would find
+     no report (critique 1, reproduced with Swift 6.4).
    - No `chats`: the channel keeps one owner.
-5. **`projects/yudame.toml`**. Add `projects = ["yudame-tools"]`. The room
+5. **The decision board covers the listed repos** (`core/board.py`). A
+   new helper, `board_spec(name)`, returns the spec itself when it names a
+   `board`. Otherwise it returns the first spec on this Mac, by name, whose
+   `projects` lists `name` and which names a `board`, else None.
+   - `here` and `answers` resolve through `board_spec` instead of
+     `spec_of`. A yudame-tools task started from #yudame-dev then counts as
+     on the board: no separate question notice is sent
+     (`notices.py:218`), and the board session can answer it.
+   - `snapshot(spec)` matches tasks whose project is `spec.name` or any
+     name in `spec.projects` (`= ANY(%s)`), so the task's open question
+     appears on the #yudame-dev canvas.
+6. **`projects/yudame.toml`**. Add `projects = ["yudame-tools"]`. The room
    line becomes "Engineering on the yuda.me company site (yudame/yuda.me)
    and the Yudame Tools menu-bar Mac app (yudame/yudame-tools)." Update the
    header comment and the #yudame-dev comment, citing Tom, 2026-10-28.
-6. **Docs.** `projects/README.md` gets the `projects` key, and the
+7. **Docs.** `projects/README.md` gets the `projects` key. It also says
+   three things about that key:
+   - Every chat of the listing project may start tasks in the listed
+     repos.
+   - The board covers them.
+   - A child runs on the Mac that holds the chat session, and a listed
+     project's `machine` is not consulted. So a listed project must be
+     placed on the same machine as the project that lists it; a test pins
+     this for the real specs.
+
+   Beyond the README, and the
    chat-session docs that describe `task.start` (`docs/bridges/slack.md`
    and `telegram.md`, where they cover it) get one sentence each.
 
 Adding a third repo later takes one new spec file plus one name in
 `projects`, and nothing else.
+
+**Every chat of the project, not only #yudame-dev.** `projects` belongs to
+the project, so the Yudame Telegram team chat (telegram:-4719889199) also
+gets the `Repos:` line. That is intended. Today that chat can already start
+yuda.me tasks through `task.start`, and its room line ("No engineering or
+SDLC work starts here; ... engineering requests go to the Eng group") is
+what keeps it from doing engineering, for either repo. A per-chat repo list
+would be a second mechanism next to `rooms` for the same concern. The
+delivery names this reading.
 
 ## Out of scope
 
@@ -101,6 +134,16 @@ Adding a third repo later takes one new spec file plus one name in
 - With `project` set to a name that has no spec, the effect is refused.
 - A session whose project lists no `projects` passing any other name is
   refused.
+- Board: a yudame-tools child of the yudame board session that is waiting
+  on a question appears in `snapshot(yudame spec)`. `here()` is True for
+  it, so `notices` sends no separate question for it, and `answers(board
+  session, child)` is True. A yudame-tools task started elsewhere, not by
+  the board session, gives `here()` False. A project that names its own
+  `board` resolves to itself.
+- The Brief of the Telegram team chat's session (the same spec, no board)
+  also carries the `Repos:` line. This pins the intended reading.
+- Each project named in a real spec's `projects` has the same `machine`
+  as the spec that lists it (a documented invariant, checked by a test).
 - The Brief of a chat session whose spec lists `projects` carries the
   `Repos:` line with both repos. A session without `projects` has no such
   line.
@@ -117,7 +160,9 @@ Adding a third repo later takes one new spec file plus one name in
 - Use the kernel's own code to fetch yudame/yudame-tools through
   `workspace` (`_cache` / the provision path) with the new spec, into a
   temp `VALOR_WORK` on the Pirate. Run the spec's suite command in that
-  checkout and confirm it builds and produces the JUnit file. This
+  checkout. Confirm it builds and that the JUnit report exists at exactly
+  the `{junit}` path, and that `core.checks.read_junit` reads per-test
+  results from it. This
   confirms the private repo is reachable with Valor's credential and that
   the Pirate's new Xcode builds it.
 - Push `valor/yudame-multi-repo` to tomcounsell/ai and confirm it with
