@@ -82,7 +82,19 @@ answers (2026-10-28):
    line becomes "Engineering on the yuda.me company site (yudame/yuda.me)
    and the Yudame Tools menu-bar Mac app (yudame/yudame-tools)." Update the
    header comment and the #yudame-dev comment, citing Tom, 2026-10-28.
-7. **Docs.** `projects/README.md` gets the `projects` key. It also says
+7. **A child reads the chat it came from** (`tools/chat_tasks.py`,
+   `core/__main__.py` `_reading_env`). Today a child of a chat session
+   carries no `chat`, so `VALOR_CHAT` falls back to its project spec's
+   first `chats`. That gives a yuda.me child the Telegram team chat rather
+   than the Slack channel it came from, and a yudame-tools child (a spec
+   with no `chats`) nothing at all. Fix: `TaskStart` puts the session's
+   own chat in the child's project dict,
+   `project={"name": ..., "chat": "<channel>:<chat id>"}`. `Brief.project`
+   is already a free dict, so nothing in the schema changes, and the board
+   query reads only `name`. `_reading_env` then uses, in order: `b.chat`,
+   then `b.project["chat"]`, then the spec's first `chats` (as today, for
+   tasks started from the command line or a routine).
+8. **Docs.** `projects/README.md` gets the `projects` key. It also says
    three things about that key:
    - Every chat of the listing project may start tasks in the listed
      repos.
@@ -134,6 +146,11 @@ delivery names this reading.
 - With `project` set to a name that has no spec, the effect is refused.
 - A session whose project lists no `projects` passing any other name is
   refused.
+- `_reading_env`: a yudame-tools child of the #yudame-dev session gets
+  `VALOR_CHAT=slack:T0B6E8JPE3C/C0CBX4MBN1L`. A yuda.me child of that
+  session gets the same channel, not `telegram:-4719889199`. A task with
+  no `project["chat"]` keeps the spec's first chat, and a chat session
+  keeps its own chat.
 - Board: a yudame-tools child of the yudame board session that is waiting
   on a question appears in `snapshot(yudame spec)`. `here()` is True for
   it, so `notices` sends no separate question for it, and `answers(board
@@ -157,14 +174,19 @@ delivery names this reading.
 - Run Valor's full suite in the clone (`uv run pytest -q -n auto`, under
   5 minutes) and `uv run ruff check .`. Report failures that also occur on
   unmodified main separately, with the evidence.
-- Use the kernel's own code to fetch yudame/yudame-tools through
-  `workspace` (`_cache` / the provision path) with the new spec, into a
-  temp `VALOR_WORK` on the Pirate. Run the spec's suite command in that
-  checkout. Confirm it builds and that the JUnit report exists at exactly
-  the `{junit}` path, and that `core.checks.read_junit` reads per-test
-  results from it. This
-  confirms the private repo is reachable with Valor's credential and that
-  the Pirate's new Xcode builds it.
+- Fetch yudame/yudame-tools with the kernel's own code (`workspace`'s
+  cache and provision path, with the new spec) into a temporary
+  `VALOR_WORK` on the Pirate. This shows the private repo is reachable
+  with Valor's credential.
+- Run the suite once the way the kernel runs it: through
+  `core.checks.suite`, or failing that through `workspace.sandboxed` with
+  the real harness sandbox profile, the checks layout's scratch path, and
+  `turn_environment`, exactly as `checks.py` (~784) builds `argv`. Do not
+  use a bare shell. Confirm three things there: the build passes under the
+  sandbox, the report lands at exactly the `{junit}` path, and
+  `read_junit` returns per-test results. If the sandbox blocks the build
+  (for example Xcode caches outside the allowed paths), fix the spec or
+  report it. Do not widen the sandbox, since that is governance.
 - Push `valor/yudame-multi-repo` to tomcounsell/ai and confirm it with
   `git ls-remote`.
 
