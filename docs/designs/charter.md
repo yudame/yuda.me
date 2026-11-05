@@ -85,7 +85,7 @@ on `#0a0a0a` (CTA) and white on `#0a0a0a` both clear WCAG AA.
 
 Client logos are the one documented exception to the color rules:
 they appear in full brand color. A third-party mark carries its own
-identity (Cyndra's black tile, Bumble's yellow hexagon) and is read
+identity (a black tile, a yellow hexagon) and is read
 as *theirs*, not as Yudame's accent — so the one-committed-yellow
 rule still governs only Yudame's own UI (the CTA, ticks, dots), not
 the logos. Keep them small and uniform (44px box) so they verify the
@@ -95,11 +95,12 @@ Client logos appear in two places only. On track-record cards they
 are full colour, in the 44px box. On the homepage hero they form one
 row (`.hero-clients`) under the headline, led by the mono label
 "Leading Engineering at:": every client with a track-record card, in
-the card order (newest first), each linking to its card; Official
-shows both its own mark and Bumble's, both linking to its card. Full
+the card order (newest first), each linking to its card; a client
+acquired by another company shows both its own mark and the
+acquirer's, both linking to its card. Full
 colour, in a smaller even box (32px), widely spaced (2.5rem) so the
 row stays calm and reads as a few marks, never a logo wall. A pale
-mark on white (PsyOptimal) takes a 1px `--border-gray` edge so it
+mark on white takes a 1px `--border-gray` edge (`.is-outlined`) so it
 reads as a tile like the others. One line on wide screens; on narrow
 screens the label sits alone on the first line and every logo on the
 second, and where that line cannot hold them all at that spacing,

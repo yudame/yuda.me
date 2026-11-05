@@ -46,9 +46,9 @@ yuda.me/
 - Hero: "Building Tomorrow's Digital Products"
 - About: Brief company overview
 - Portfolio: Client showcase
-  - Deckfusion (Data storytelling)
-  - Bumble (Social platform)
-  - Chainstarters (Web3 no-code)
+  - A data-storytelling product
+  - A social platform
+  - A Web3 no-code platform
   - Other notable clients
 - Products: Our own innovations
   - QuickBooks MCP for Claude
