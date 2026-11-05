@@ -57,8 +57,12 @@ field; it gains one when there is a public outcome to state.
      built" is already untrue (three are ongoing); it becomes "and on
      each one the client owns what we built."
 4. **Homepage** `src/index.html`:
-   - hero: "CTO at Mastery and Cyndra.AI." (newest first), Mastery
-     linking `/track-record/#mastery`;
+   - hero (as built, after Tom asked to simplify it): "Engineering
+     leadership for products people love. At Mastery, Cyndra.AI,
+     PsyOptimal, Fuse, and Official." (newest first), each name
+     linking to its track-record card (Mastery to
+     `/track-record/#mastery`); the Bumble acquisition stays in the
+     Engineering leadership card below;
    - Engineering leadership card: "Most recently at Mastery, Cyndra AI,
      PsyOptimal, and Fuse, and at Official through its acquisition by
      Bumble Inc."
@@ -116,7 +120,7 @@ review checks every claim against the public sources and the charter).
   wrapped as a block and left the full stop on its own line on mobile.
 - Source of record: tomcounsell.com/resume.html (fetched 2026-11-05)
   lists PsyOptimal and Cyndra as CTO, not Mastery yet. Contract basis
-  is Tom's own word in #yudame-dev (new client, CTO, from September
+  is Tom's own word in the team chat (new client, CTO, from September
   2026). Flagged in the delivery.
 - Two-field card at desktop: the fields sit left in the first two of
   three columns, leaving whitespace to the right. Read as deliberate in
