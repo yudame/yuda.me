@@ -63,7 +63,7 @@ field; it gains one when there is a public outcome to state.
      track-record clients (`.hero-clients`), newest first, each linking
      to its card (the new one to `/track-record/#mastery`; Bumble's to
      `#official`); on a phone at most two lines, logos dropping from
-     the end below 390px and 360px;
+     the end below 368px and 345px (the widest at which two lines at 2.5rem spacing cannot hold them);
      the acquisition stays in the Engineering leadership card below;
    - Engineering leadership card: "Most recently at Mastery, Cyndra AI,
      PsyOptimal, and Fuse, and at Official through its acquisition by

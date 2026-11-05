@@ -748,13 +748,13 @@ footer a:hover {
     border-radius: 6px;
 }
 
-@media (max-width: 389px) {
+@media (max-width: 367px) {
     .hero-clients li:nth-child(n + 6) {
         display: none;
     }
 }
 
-@media (max-width: 359px) {
+@media (max-width: 344px) {
     .hero-clients li:nth-child(n + 5) {
         display: none;
     }
