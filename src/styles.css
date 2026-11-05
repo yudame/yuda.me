@@ -748,13 +748,36 @@ footer a:hover {
     border-radius: 6px;
 }
 
-@media (max-width: 367px) {
+/* A pale mark on white (PsyOptimal) gets a thin tile edge to match the
+   other logos' squares. */
+.hero-clients img.is-outlined {
+    box-sizing: border-box;
+    border: 1px solid var(--border-gray);
+}
+
+/* Narrow screens: the label alone on line 1, the logos on line 2. Where
+   line 2 can't hold them all at the full spacing, logos drop from the end
+   (oldest first): n logos need n*32 + (n-1)*40 px of row. */
+@media (max-width: 820px) {
+    .hero-clients-label {
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 511px) {
+    .hero-clients li:nth-child(n + 7) {
+        display: none;
+    }
+}
+
+@media (max-width: 439px) {
     .hero-clients li:nth-child(n + 6) {
         display: none;
     }
 }
 
-@media (max-width: 344px) {
+@media (max-width: 367px) {
     .hero-clients li:nth-child(n + 5) {
         display: none;
     }

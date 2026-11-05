@@ -59,11 +59,13 @@ field; it gains one when there is a public outcome to state.
 4. **Homepage** `src/index.html`:
    - hero (as built, after Tom asked to simplify it, then for logos):
      no sub-line; under the headline, "Leading Engineering at:"
-     then one widely spaced full-colour row of 32px logos for all six
-     track-record clients (`.hero-clients`), newest first, each linking
-     to its card (the new one to `/track-record/#mastery`; Bumble's to
-     `#official`); on a phone at most two lines, logos dropping from
-     the end below 368px and 345px (the widest at which two lines at 2.5rem spacing cannot hold them);
+     then one widely spaced full-colour row of 32px logos, seven in all
+     (`.hero-clients`), newest first: Mastery, Cyndra AI, PsyOptimal
+     (with a thin outline), Fuse, Bumble and Official (both to
+     `#official`), Simplenight, each linking to its card; up to 820px
+     the label sits alone on line 1 and the logos on line 2, dropping
+     from the end below 512px (Simplenight), 440px (Official) and 368px
+     (Bumble), where n logos need n*32 + (n-1)*40 px;
      the acquisition stays in the Engineering leadership card below;
    - Engineering leadership card: "Most recently at Mastery, Cyndra AI,
      PsyOptimal, and Fuse, and at Official through its acquisition by

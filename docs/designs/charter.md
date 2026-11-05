@@ -95,12 +95,16 @@ Client logos appear in two places only. On track-record cards they
 are full colour, in the 44px box. On the homepage hero they form one
 row (`.hero-clients`) under the headline, led by the mono label
 "Leading Engineering at:": every client with a track-record card, in
-the card order (newest first), each linking to its card. Full colour,
-in a smaller even box (32px), widely spaced (2.5rem) so the row stays
-calm and reads as a few marks, never a logo wall. One line on wide
-screens; on a phone at most two lines, and where two lines cannot
-hold every logo at that spacing, logos drop from the end (oldest
-first) rather than tightening the spacing. Nowhere else.
+the card order (newest first), each linking to its card; Official
+shows both its own mark and Bumble's, both linking to its card. Full
+colour, in a smaller even box (32px), widely spaced (2.5rem) so the
+row stays calm and reads as a few marks, never a logo wall. A pale
+mark on white (PsyOptimal) takes a 1px `--border-gray` edge so it
+reads as a tile like the others. One line on wide screens; on narrow
+screens the label sits alone on the first line and every logo on the
+second, and where that line cannot hold them all at that spacing,
+logos drop from the end (oldest first) rather than tightening the
+spacing. Nowhere else.
 
 ## Voice & tone
 
