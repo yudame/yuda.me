@@ -57,12 +57,12 @@ field; it gains one when there is a public outcome to state.
      built" is already untrue (three are ongoing); it becomes "and on
      each one the client owns what we built."
 4. **Homepage** `src/index.html`:
-   - hero (as built, after Tom asked to simplify it): "Engineering
-     leadership for products people love. At Mastery, Cyndra.AI,
-     PsyOptimal, Fuse, and Official." (newest first), each name
-     linking to its track-record card (Mastery to
-     `/track-record/#mastery`); the Bumble acquisition stays in the
-     Engineering leadership card below;
+   - hero (as built, after Tom asked to simplify it, then for logos):
+     the sub-line is "Engineering leadership for products people
+     love." and under it one quiet greyscale row of client logos
+     (`.hero-clients`), newest first, each linking to its
+     track-record card (the new one to `/track-record/#mastery`);
+     the acquisition stays in the Engineering leadership card below;
    - Engineering leadership card: "Most recently at Mastery, Cyndra AI,
      PsyOptimal, and Fuse, and at Official through its acquisition by
      Bumble Inc."
