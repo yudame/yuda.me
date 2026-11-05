@@ -91,6 +91,14 @@ rule still governs only Yudame's own UI (the CTA, ticks, dots), not
 the logos. Keep them small and uniform (44px box) so they verify the
 track record without becoming a logo wall.
 
+Client logos appear in two places only. On track-record cards they
+are full colour, in the 44px box. On the homepage hero they form one
+row of current and recent clients (`.hero-clients`) under the
+sub-line, each linking to its track-record card: the same small,
+even box, in one quiet tone (greyscale, softened), so the row stays
+calm and the yellow CTA still stands alone. Full colour returns on
+hover, as the click affordance. Nowhere else.
+
 ## Voice & tone
 
 - Every claim site-wide must be true today. Future intent is stated
