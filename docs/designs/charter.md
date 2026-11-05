@@ -93,10 +93,14 @@ track record without becoming a logo wall.
 
 Client logos appear in two places only. On track-record cards they
 are full colour, in the 44px box. On the homepage hero they form one
-row of current and recent clients (`.hero-clients`) under the
-sub-line, each linking to its track-record card: full colour, in a
-smaller even box (32px), widely spaced so the row stays calm and
-reads as a few marks, never a logo wall. Nowhere else.
+row (`.hero-clients`) under the headline, led by the mono label
+"Leading Engineering at:": every client with a track-record card, in
+the card order (newest first), each linking to its card. Full colour,
+in a smaller even box (32px), widely spaced (2.5rem) so the row stays
+calm and reads as a few marks, never a logo wall. One line on wide
+screens; on a phone at most two lines, and where two lines cannot
+hold every logo at that spacing, logos drop from the end (oldest
+first) rather than tightening the spacing. Nowhere else.
 
 ## Voice & tone
 

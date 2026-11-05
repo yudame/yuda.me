@@ -58,10 +58,12 @@ field; it gains one when there is a public outcome to state.
      each one the client owns what we built."
 4. **Homepage** `src/index.html`:
    - hero (as built, after Tom asked to simplify it, then for logos):
-     the sub-line is "Engineering leadership for products people
-     love." and under it one widely spaced full-colour row of 32px client logos
-     (`.hero-clients`), newest first, each linking to its
-     track-record card (the new one to `/track-record/#mastery`);
+     no sub-line; under the headline, "Leading Engineering at:"
+     then one widely spaced full-colour row of 32px logos for all six
+     track-record clients (`.hero-clients`), newest first, each linking
+     to its card (the new one to `/track-record/#mastery`; Bumble's to
+     `#official`); on a phone at most two lines, logos dropping from
+     the end below 390px and 360px;
      the acquisition stays in the Engineering leadership card below;
    - Engineering leadership card: "Most recently at Mastery, Cyndra AI,
      PsyOptimal, and Fuse, and at Official through its acquisition by
