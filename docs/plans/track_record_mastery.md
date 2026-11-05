@@ -59,7 +59,7 @@ field; it gains one when there is a public outcome to state.
 4. **Homepage** `src/index.html`:
    - hero (as built, after Tom asked to simplify it, then for logos):
      the sub-line is "Engineering leadership for products people
-     love." and under it one quiet greyscale row of client logos
+     love." and under it one widely spaced full-colour row of 32px client logos
      (`.hero-clients`), newest first, each linking to its
      track-record card (the new one to `/track-record/#mastery`);
      the acquisition stays in the Engineering leadership card below;

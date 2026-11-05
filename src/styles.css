@@ -715,12 +715,12 @@ footer a:hover {
 }
 
 /* Two quiet CTAs side by side: destination, then contact */
-/* Homepage hero: one quiet row of client logos (charter §Color) */
+/* Homepage hero: one row of client logos, full colour (charter §Color) */
 .hero-clients {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem 1.5rem;
+    gap: 1rem 2.5rem;
     margin: 1.75rem auto 0;
     padding: 0;
     list-style: none;
@@ -733,21 +733,10 @@ footer a:hover {
 }
 
 .hero-clients img {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
-    border-radius: 8px;
-    filter: grayscale(1) contrast(1.15);
-    opacity: 0.6;
-    transition:
-        filter 0.3s ease,
-        opacity 0.3s ease;
-}
-
-.hero-clients a:hover img,
-.hero-clients a:focus-visible img {
-    filter: none;
-    opacity: 1;
+    border-radius: 6px;
 }
 
 .hero-actions {
