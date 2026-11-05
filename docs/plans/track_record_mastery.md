@@ -103,3 +103,21 @@ inspection:
 Stakes: public copy about a client goes live on merge; reversible by a
 revert, but a wrong claim is seen first. Critique 0, review 1 (the
 review checks every claim against the public sources and the charter).
+
+## Build notes (after critique)
+
+- Copy rewritten to use only words traceable to masteryhq.io ("mental
+  and emotional strength training") and the App Store listing ("helps
+  athletes train their minds like they train their bodies"; "built by
+  elite coaches, sport psychologists"; "adapts to your goals, sport";
+  "focus, confidence"). Contrast framing and "daily" dropped. Tag "AI
+  coaching" replaced with "Mental training". The accent covers "train
+  their minds" only: `.accent` is inline-block, so a longer phrase
+  wrapped as a block and left the full stop on its own line on mobile.
+- Source of record: tomcounsell.com/resume.html (fetched 2026-11-05)
+  lists PsyOptimal and Cyndra as CTO, not Mastery yet. Contract basis
+  is Tom's own word in #yudame-dev (new client, CTO, from September
+  2026). Flagged in the delivery.
+- Two-field card at desktop: the fields sit left in the first two of
+  three columns, leaving whitespace to the right. Read as deliberate in
+  the screenshot; no CSS change.
